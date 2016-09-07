@@ -34,7 +34,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "views/home";
 	}
 	@RequestMapping("/cadastro")	
 		public ModelAndView recebeParam(Model model){
