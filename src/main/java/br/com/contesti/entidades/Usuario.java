@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.TableGenerator;
 
 public class Usuario implements Serializable {
 
@@ -29,6 +30,8 @@ public class Usuario implements Serializable {
 	@Column(nullable=true, length=45)
 	private String email;
 	
+	@Column(nullable=true, length=1)
+	private Boolean permissao;
 	
 	public Integer getIdUsuario() {
 		return idUsuario;

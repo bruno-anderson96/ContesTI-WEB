@@ -1,102 +1,84 @@
-<html>
-
-  <head>
-  
+<html><head>
     <meta charset="utf-8">
-    
-
-                  <title>Cadastro</title>
-   
+    <title>Cadastro Quest√£o</title>
     <link href="css/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="cadastroQuestao/estilo.css" rel="stylesheet" type="text/css">
-   
+    <link href="css/estilo.css" rel="stylesheet" type="text/css">
     <script src="css/bootstrap-3.3.6/js/bootstrap.min.js"></script>
-    
-    
-    
-  </head>
-
-  <body data-spy="scroll">
-    <div class="container-fluid">
-      <h2 class="text-primary">Cadastro de Questıes</h2>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="btn-group btn-group-sm">
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Busca <span class="fa fa-caret-down"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="#">Assunto</a>
-                <a href="#">Banca</a>
-                <a href="#">Concurso</a>
-              </li>
-            </ul>
+  </head><body data-spy="scroll">
+    <div class="section section-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-11">
+            <h2 class="text-left">Cadastro de Quest√µes</h2>
           </div>
         </div>
       </div>
-      <form role="form" class="form-horizontal">
-       
-        <div class="form-group">
-          <br>
-          <label class="col-xs-3 control-label">1:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="Quest„o" nome="input_quest„o">
-          </div>
-        </div>
-       
-        <div class="form-group">
-          <label class="col-xs-3 control-label">2:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="Quest„o" email="input_quest„o">
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label class="col-xs-3 control-label">3:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" placeholder="Quest„o" email="input_quest„o">
-          </div>
-        </div>
-       
-        <div class="form-group">
-          <label class="col-xs-3 control-label">4:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" nome="input_nome" placeholder="Quest„o">
-          </div>
-        </div>
-       
-        <div class="form-group">
-          <label class="col-xs-3 control-label">5:</label>
-          <div class="col-xs-4">
-            <input type="text" class="form-control" nome="input_nome" placeholder="Quest„o">
-          </div>
-        </div>
-      </form>
     </div>
-    
+    <div class="section">
+      <div class="background-image" style="background-image : url(http://demoura.adv.br/gallery_gen/459a1fe31e97b5e293abf8e19b123d35_gallery.jpg)"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form role="form" class="form-horizontal">
+              <div class="form-group has-feedback">
+                <label class="col-xs-3 text-primary control-label">Cadastra Quest√£o:</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Quest√£o:" nome="input_quest√£o">
+                </div>
+              </div>
+              <div class="form-group has-feedback">
+                <label class="col-xs-3 text-primary  control-label">( A ):</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Aternativa:" nome="input_quest√£o">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-xs-3 text-primary  control-label">( B )</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Alternativa" email="input_quest√£o">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-xs-3 text-primary  control-label">( C )</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Alternativa" email="input_quest√£o">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-xs-3 text-primary control-label">( D )</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Alternativa" nome="input_nome">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-xs-3 text-primary  control-label">Resposta:</label>
+                <div class="col-xs-4">
+                  <input type="text" class="form-control input-lg" placeholder="Resposta" nome="input_nome">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="section">
       <div class="container">
         <div class="row">
-          <div class="col-md-1">
-            <button type="submit" class="btn btn-primary">Novo</button>
-          </div>
-          <div class="col-md-1">
-            <button type="submit" class="btn btn-primary">Cancelar</button>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-2 text-right">
+                <button type="submit" class="bg-info  btn-link btn-sm">Criar</button>
+              </div>
+              <div class="col-md-1 text-center">
+                <button type="submit" class="bg-info  btn-link btn-sm">Cancelar</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-   
-    <div class="section section-info">
-      <div class="background-image"></div>
-    </div>
-   
-    <div class="section section-info">
-      <div class="background-image"></div>
-    </div>
-    <div class="section section-info"></div>
+    <div class="container-fluid"></div>
   
-</body>
 
-</html>
+</body></html>
