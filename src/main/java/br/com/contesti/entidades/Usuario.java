@@ -16,7 +16,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer idUsuario;
+	private Long idUsuario;
 	
 	@Column(nullable=true, length=30)
 	private String nome_usuario;
@@ -33,10 +33,21 @@ public class Usuario implements Serializable {
 	@Column(nullable=true, length=1)
 	private Boolean permissao;
 	
-	public Integer getIdUsuario() {
+	public Usuario(String nome_usuario, String login, String senha, String email) {
+		// TODO Auto-generated constructor stub
+		this.nome_usuario = nome_usuario;
+		this.login = login;
+		this.senha = senha;
+		this.email = email;
+	}
+	
+	public Usuario(){
+		
+	}
+	public Long getIdUsuario() {
 		return idUsuario;
 	}
-	public void setIdUsuario(Integer idUsuario) {
+	public void setIdUsuario(Long idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 	public String getNome_usuario() {

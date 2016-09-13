@@ -9,20 +9,29 @@
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.contesti.entidades.Usuario;
-   
-  import java.util.List;
+import br.com.contesti.repository.UsuarioRepository;
+
+import java.util.List;
    
   @Controller
-  @RequestMapping("/")
+  @RequestMapping("/user")
   public class UsuarioController {
 	  
-	  @RequestMapping("/create")
+	  @Autowired
+	  private UsuarioRepository usuRepo;	  
+	  
+	  public String novo(){
+		  return "usuario/cadastro";
+	  }
+	  
+	  @RequestMapping("/save")
 	  @ResponseBody
-	  public String create(String nome_usuario, String login, String senha, String email) {
+	  public String salvar(String nome_usuario, String login, String senha, String email) {
 	    String userId = "";
 	    try {
 	      Usuario usuario = new Usuario(nome_usuario, login,senha,email);
-	      usuarioDao.save(usuario);
+	      
+	      usuRepo.save(usuario);
 	      nome_usuario = String.valueOf(usuario.getIdUsuario());
 	    }
 	    catch (Exception ex) {
@@ -36,10 +45,10 @@ import br.com.contesti.entidades.Usuario;
 	   */
 	  @RequestMapping("/delete")
 	  @ResponseBody
-	  public String delete(int idUsuario) {
+	  public String deletar(int idUsuario) {
 	    try {
 	      Usuario usuario = new Usuario();
-	      usuarioDao.delete(usuario);
+	      usuRepo.delete(usuario.getIdUsuario());
 	    }
 	    catch (Exception ex) {
 	      return "Error deleting the user:" + ex.toString();
@@ -51,43 +60,26 @@ import br.com.contesti.entidades.Usuario;
 	   * GET /get-by-email  --> Return the id for the user having the passed
 	   * email.
 	   */
-	  @RequestMapping("/get-by-email")
-	  @ResponseBody
-	  public String getByEmail(String email) {
-	    String userId = "";
-	    try {
-	      Usuario usuario = usuarioDao.findByEmail(email);
-	      usuario = String.valueOf(usuario.getIdUsuario());
-	    }
-	    catch (Exception ex) {
-	      return "User not found";
-	    }
-	    return "The user id is: " + userId;
-	  }
-	  
+	 
 	  /**
 	   * GET /update  --> Update the email and the name for the user in the 
 	   * database having the passed id.
 	   */
-	  @RequestMapping("/update")
+/*	  @RequestMapping("/update")
 	  @ResponseBody
 	  public String updateUser(String nome_usuario, String login, String senha, String email) {
 	    try {
-	      Usuario usuario = usuarioDao.findOne(nome_usuario);
+	      Usuario usuario = usuRepo.findOne(nome_usuario);
 	      usuario.setEmail(email);
 	      usuario.setNome_usuario(nome_usuario);
-	      usuarioDao.save(usuario);
+	      usuRepo.save(usuario);
 	    }
 	    catch (Exception ex) {
 	      return "Error updating the user: " + ex.toString();
 	    }
 	    return "User succesfully updated!";
 	  }
-
-	  // Private fields
-
-	  @Autowired
-	  private Usuario usuarioDao;
-	  
+*/
+	 	  
 	
   }
