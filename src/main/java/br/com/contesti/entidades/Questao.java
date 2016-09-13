@@ -3,10 +3,12 @@ package br.com.contesti.entidades;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Questao implements Serializable {
 
 	/**
@@ -26,12 +28,7 @@ public class Questao implements Serializable {
 	
 	
 	@Column(nullable=true, length=11)
-	private int ano;
-	
-	@OneToMany
-	private ResolucaoQuestao resolucaoQuestao;
-	
-	
+	private int ano;	
 	
 	public Integer getIdQuestao() {
 		return idQuestao;
