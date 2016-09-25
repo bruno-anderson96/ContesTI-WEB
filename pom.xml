@@ -82,7 +82,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jersey</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 38e5639c3837db03f40ac6c137d2896b02fb1943
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
