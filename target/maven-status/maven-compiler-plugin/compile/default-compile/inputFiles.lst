@@ -1,14 +1,17 @@
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\UsuarioController.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Banca.java
+C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\config\WebSecurityConfig.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Usuario.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\ContestiApplication.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Permissoes.java
+C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\QuestaoController.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\repository\UsuarioRepository.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\HomeController.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Assunto.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\ResolucaoQuestao.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Questao.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Disciplina.java
+C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\config\MvcConfig.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Alternativa.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\entidades\Edital.java
 C:\Users\Bruno\Documents\workspace-sts-3.8.1.RELEASE\contesti\src\main\java\br\com\contesti\dao\GenericDAO.java
