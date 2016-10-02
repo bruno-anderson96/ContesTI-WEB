@@ -5,14 +5,17 @@
 
 
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <title>Cadastro Questão</title>
-<link href="/static/questao/css/estilo.css"
-	th:href="@{/css/estilo.css}" rel="stylesheet">
-<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"><link href="css/estilo.css" rel="stylesheet" type="text/css">
-	<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/js/bootstrap.min.js"
-			th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.js}"></script>
+
+<link href="questao/css/estilo.css" th:href="@{questao/css/estilo.css}" rel="stylesheet" />
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="questao/css/estilo.css" rel="stylesheet" type="text/css" />
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/js/bootstrap.min.js" th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.js}"/>
+
 </head>
+
 <body data-spy="scroll">
 	<div class="section section-primary">
 		<div class="container">
@@ -35,7 +38,7 @@
 								Questão:</label>
 							<div class="col-xs-4">
 								<input type="text" class="form-control input-lg"
-									placeholder="Questão:" nome="input_questão" />
+									placeholder="Questão:" name="input_questão" />
 							</div>
 						</div>
 						<div class="form-group has-feedback">
@@ -43,7 +46,7 @@
 								):</label>
 							<div class="col-xs-4">
 								<input type="text" class="form-control input-lg"
-									placeholder="Aternativa:" nome="input_questão" />
+									placeholder="Aternativa:" name="input_questão" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -64,14 +67,14 @@
 							<label class="col-xs-3 text-primary control-label">( D )</label>
 							<div class="col-xs-4">
 								<input type="text" class="form-control input-lg"
-									placeholder="Alternativa" nome="input_nome" />
+									placeholder="Alternativa" name="input_nome" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-3 text-primary  control-label">Resposta:</label>
 							<div class="col-xs-4">
 								<input type="text" class="form-control input-lg"
-									placeholder="Resposta" nome="input_nome" />
+									placeholder="Resposta" name="input_nome" />
 							</div>
 						</div>
 					</form>
