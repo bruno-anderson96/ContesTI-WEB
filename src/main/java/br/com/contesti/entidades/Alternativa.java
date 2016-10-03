@@ -16,6 +16,13 @@ public class Alternativa implements Serializable{
 	 */
 	private static final long serialVersionUID = 4793798064584755463L;
 	
+	public Alternativa(String descricao, boolean correta, Questao questao){
+		this.descricao = descricao;
+		this.correta = correta;
+		this.questao = questao;
+	}
+	
+	
 	@Id
 	@GeneratedValue
 	private Integer idAlternativa;

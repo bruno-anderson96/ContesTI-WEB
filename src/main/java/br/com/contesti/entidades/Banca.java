@@ -16,6 +16,10 @@ public class Banca implements Serializable {
 	 */
 	private static final long serialVersionUID = -3768754843159192680L;
 
+	public Banca(String descricao){
+		this.descricao = descricao;
+	}
+	
 	@Id
 	@GeneratedValue
 	private Integer idBanca;

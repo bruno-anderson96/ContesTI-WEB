@@ -16,6 +16,13 @@ public class Assunto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 9134132860303958115L;
+	
+	public Assunto(String descricao, Disciplina disciplina){
+		this.descricao = descricao;
+		this.disciplina = disciplina;
+	}
+	
+	
 	@Id
 	@GeneratedValue
 	private Integer idAssunto;

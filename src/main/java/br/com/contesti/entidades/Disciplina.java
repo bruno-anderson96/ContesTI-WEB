@@ -15,6 +15,11 @@ public class Disciplina implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1167215334015066636L;
+	
+	public Disciplina(String descricao){
+		this.descricao = descricao;
+	}
+ 	
 	@Id
 	@GeneratedValue
 	private Integer idDisciplina;

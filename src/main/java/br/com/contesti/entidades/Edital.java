@@ -16,6 +16,12 @@ public class Edital implements Serializable {
 	 */
 	private static final long serialVersionUID = -4828052666371151961L;
 
+	public Edital(String nome, String link, Banca banca){
+		this.nome = nome;
+		this.link = link;
+		this.banca = banca;
+	}
+	
 	@Id
 	@GeneratedValue
 	private Integer idEdital;

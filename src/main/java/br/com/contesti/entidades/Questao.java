@@ -16,6 +16,12 @@ public class Questao implements Serializable {
 	 */
 	private static final long serialVersionUID = -1122050260113866970L;
 	
+	public Questao(String pergunta, String comentario, int ano){
+		this.pergunta =pergunta;
+		this.comentario = comentario;
+		this.ano = ano;
+	}
+	
 	@Id
 	@GeneratedValue
 	private Integer idQuestao;

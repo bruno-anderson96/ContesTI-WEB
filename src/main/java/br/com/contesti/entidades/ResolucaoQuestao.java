@@ -17,6 +17,14 @@ public class ResolucaoQuestao implements Serializable{
 	 */
 	private static final long serialVersionUID = 70709647454840591L;
 
+	
+	public ResolucaoQuestao(Date dataq, Boolean acerto, Questao questao, Usuario usuario){
+		this.dataq = dataq;
+		this.acerto = acerto;
+		this.questao = questao;
+		this.usuario = usuario;
+	}
+	
 	@Id
 	@GeneratedValue
 	private Integer idResolucaoQuestao;
