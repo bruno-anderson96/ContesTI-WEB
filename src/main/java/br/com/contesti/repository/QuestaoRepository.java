@@ -3,19 +3,16 @@ package br.com.contesti.repository;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.contesti.entidades.Questao;
 
-public interface QuestaoRepository {
+public interface QuestaoRepository extends JpaRepository<Questao, Long> {
 
 	
-	List<Questao> findByQuestaoId(Integer idQuestao);
-
-	Questao findByid(int idQuestao) throws DataAccessException;
-	Questao findByDisciplina(String disciplina) throws DataAccessException;
-	Questao findByBanca(String banca) throws DataAccessException;
-	Questao findByAssunto(String assunto) throws DataAccessException;
+	List<Questao> findByPergunta(String pergunta);
 	
-	void save(Questao questao) throws DataAccessException;
+
+	
 	
 }
