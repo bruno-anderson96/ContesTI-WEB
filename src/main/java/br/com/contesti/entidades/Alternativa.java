@@ -9,17 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Alternativa implements Serializable{
+public class Alternativa extends Questao implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4793798064584755463L;
 	
-	public Alternativa(String descricao, boolean correta, Questao questao){
+	public Alternativa(String descricao, boolean correta, String pergunta, String comentario, int ano){
+		super(pergunta, comentario, ano);
 		this.descricao = descricao;
 		this.correta = correta;
-		this.questao = questao;
+	
 	}
 	
 	
