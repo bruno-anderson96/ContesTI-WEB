@@ -5,55 +5,48 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import br.com.contesti.entidades.Alternativa;
 import br.com.contesti.entidades.Questao;
+import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.QuestaoRepository;
 
 @Controller
 @RequestMapping("/cadastroQuestao")
 public class QuestaoController {
 
+	
+	
 	@Autowired
     private QuestaoRepository questaoRepository;
-//    private AlternativaRepository alternativaRepository;
+
+	@Autowired
+	private AlternativaRepository alternativaRepository;
 	
+
 	@RequestMapping(value = "/teste")
-    @ResponseBody
-   
-    public String create(String pergunta, String comentario, Integer ano
-    		 ){	
+    @ResponseBody  
+    public String create(String pergunta, String comentario, Integer ano, String descricao, Boolean correta){	
+		
 		System.out.println("ANTES DO TRY");
-    	try{    	
-    		System.out.println("NO TRY");
+    	try{    
     		
-     		questaoRepository.save(new Questao("pergunta","comentario",1996));
+    		System.out.println("NO TRY");
+    		Questao q1 = new Questao("pergunta","comentario",1996);
+    		Alternativa a1 = new Alternativa("reposta", false, q1);
+     		questaoRepository.save(q1);
+     		alternativaRepository.save(a1);
 //     		alternativaRepository.save(new Alternativa("alternativa1", false, questao));
        	}catch(Exception ex){
     		System.out.println("EXCEÇÃO");
     		return "Error" + ex.toString();
     	}
     	return "Sucesso!!!";
-//    	a1.setDescricao("a1");
-//    	a1.setCorreta(true);
-//    	
-//    	a2.setDescricao("a2");
-//    	a2.setCorreta(false);
-//    	a3.setDescricao("a3");
-//    	a3.setCorreta(false);
-//    	a4.setDescricao("a4");
-//    	a4.setCorreta(false);
-//    	a5.setDescricao("a5");
-//    	a5.setCorreta(false);
-//    	
-//    	questaoRepository.save(questao);
-//    	alternativaRepository.save(a1);
-//    	alternativaRepository.save(a2);
-//    	alternativaRepository.save(a3);
-//    	alternativaRepository.save(a4);
-//    	alternativaRepository.save(a5);
-//    	
-//      
+      
     }
-    }
+ 
+
+}
+
     
 //private AlternativaRepository alternativaRepository;
 

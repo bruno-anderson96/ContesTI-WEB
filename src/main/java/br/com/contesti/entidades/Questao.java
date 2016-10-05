@@ -21,6 +21,8 @@ public class Questao implements Serializable {
 		this.ano = ano;
 	}
 	
+
+
 	@Id
 	@GeneratedValue
 	private Integer idQuestao;
