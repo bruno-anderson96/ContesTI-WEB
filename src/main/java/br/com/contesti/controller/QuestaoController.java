@@ -1,18 +1,11 @@
 package br.com.contesti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.contesti.entidades.Alternativa;
 import br.com.contesti.entidades.Questao;
-import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.QuestaoRepository;
 
 @Controller
@@ -21,7 +14,8 @@ public class QuestaoController {
 
 	@Autowired
     private QuestaoRepository questaoRepository;
-    
+//    private AlternativaRepository alternativaRepository;
+	
 	@RequestMapping(value = "/teste")
     @ResponseBody
    
@@ -30,7 +24,9 @@ public class QuestaoController {
 		System.out.println("ANTES DO TRY");
     	try{    	
     		System.out.println("NO TRY");
+    		
      		questaoRepository.save(new Questao("pergunta","comentario",1996));
+//     		alternativaRepository.save(new Alternativa("alternativa1", false, questao));
        	}catch(Exception ex){
     		System.out.println("EXCEÇÃO");
     		return "Error" + ex.toString();
