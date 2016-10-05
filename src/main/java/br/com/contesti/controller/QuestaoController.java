@@ -26,22 +26,15 @@ public class QuestaoController {
     @ResponseBody
    
     public String create(String pergunta, String comentario, Integer ano
-    		 ){
-	
+    		 ){	
 		System.out.println("ANTES DO TRY");
-    	try{    		
-
+    	try{    	
     		System.out.println("NO TRY");
- 
- 
-    		questaoRepository.save(new Questao("pergunta","comentario",1996));
-   
-    	}catch(Exception ex){
-
+     		questaoRepository.save(new Questao("pergunta","comentario",1996));
+       	}catch(Exception ex){
     		System.out.println("EXCEÇÃO");
     		return "Error" + ex.toString();
     	}
-
     	return "Sucesso!!!";
 //    	a1.setDescricao("a1");
 //    	a1.setCorreta(true);

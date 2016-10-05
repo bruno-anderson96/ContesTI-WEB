@@ -2,16 +2,14 @@ package br.com.contesti.repository;
 
 import java.util.List;
 
-import org.springframework.dao.DataAccessException;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import br.com.contesti.entidades.Usuario;
 
-public interface UsuarioRepository {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	List<Usuario> findByUsuarioId(Integer idUsuario);
-
-	Usuario findByid(int id) throws DataAccessException;
-	
-	void save(Usuario usuario) throws DataAccessException;
+	List<Usuario> findByLogin(String nome_usuario);
 	
 }
