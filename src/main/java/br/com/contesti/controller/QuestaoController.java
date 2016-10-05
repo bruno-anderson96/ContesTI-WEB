@@ -35,7 +35,7 @@ public class QuestaoController {
     		Alternativa a1 = new Alternativa("reposta", false, q1);
      		questaoRepository.save(q1);
      		alternativaRepository.save(a1);
-//     		alternativaRepository.save(new Alternativa("alternativa1", false, questao));
+
        	}catch(Exception ex){
     		System.out.println("EXCEÇÃO");
     		return "Error" + ex.toString();
