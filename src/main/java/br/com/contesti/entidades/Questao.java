@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Questao implements Serializable {
@@ -16,11 +15,7 @@ public class Questao implements Serializable {
 	 */
 	private static final long serialVersionUID = -1122050260113866970L;
 	
-	public Questao(String pergunta, String comentario, int ano){
-		this.pergunta =pergunta;
-		this.comentario = comentario;
-		this.ano = ano;
-	}
+	
 	
 	@Id
 	@GeneratedValue
@@ -105,6 +100,12 @@ public class Questao implements Serializable {
 	public String toString() {
 		return "Questao [idQuestao=" + idQuestao + ", pergunta=" + pergunta + ", comentario=" + comentario + ", ano="
 				+ ano + "]";
+	}
+	
+	public Questao(String pergunta, String comentario, int ano){
+		this.pergunta =pergunta;
+		this.comentario = comentario;
+		this.ano = ano;
 	}
 	
 	

@@ -9,8 +9,10 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 @SpringBootApplication
-public class Contesti2Application {
 
+public class Contesti2Application {
+	 
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Contesti2Application.class, args);
 	}
