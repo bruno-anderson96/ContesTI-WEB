@@ -23,6 +23,11 @@ public class Alternativa implements Serializable{
 	}
 	
 	
+	public Alternativa() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Id
 	@GeneratedValue
 	private Integer idAlternativa;

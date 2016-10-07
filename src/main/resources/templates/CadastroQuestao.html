@@ -50,47 +50,54 @@
 									Operacional</a> <a href="#">Segurança da Informação</a></li>
 						</ul>
 					</div>
-					<form role="form" class="form-horizontal">
+					<form action="#" th:action="@{cadastroQuestao/criarQuestao}" role="form" class="form-horizontal" method="post">
 						<div class="form-group has-feedback">
 							<label class="col-xs-3 text-primary control-label">Questão</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Questão:" name="input_questao" />
+								<input name="pergunta" type="text" class="form-control input-lg"
+									placeholder="Questão:" />
 							</div>
 						</div>
 						<div class="form-group has-feedback">
 							<label class="col-xs-3 text-primary  control-label">( A )</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Aternativa" name="input_questao" />
+								<input name="desc1" type="text" class="form-control input-lg"
+									placeholder="Aternativa"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-3 text-primary  control-label">( B )</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Alternativa" name="input_questao" />
+							<input name="desc2" type="text" class="form-control input-lg"
+									placeholder="Aternativa"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-3 text-primary  control-label">( C )</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Alternativa" name="input_questao" />
+								<input name="desc3" type="text" class="form-control input-lg"
+									placeholder="Aternativa"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-3 text-primary  control-label">( D )</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Alternativa" name="input_nome" />
+								<input name="desc4" type="text" class="form-control input-lg"
+									placeholder="Aternativa"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-xs-3 text-primary  control-label">( E )</label>
+							<div class="col-xs-4">
+								<input name="desc5" type="text" class="form-control input-lg"
+									placeholder="Aternativa"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-xs-3 text-primary  control-label">Resposta:</label>
 							<div class="col-xs-4">
-								<input type="text" class="form-control input-lg"
-									placeholder="Resposta:" name="input_nome" />
+								<input name = "correta" type="text" class="form-control input-lg"
+									placeholder="Resposta:" />
 							</div>
 						</div>
 						<button type="submit" class=" bg-info  btn-link btn-sm">Criar</button>

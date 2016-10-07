@@ -23,6 +23,15 @@ public class Questao implements Serializable {
 	
 
 
+	public Questao() {
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
 	@Id
 	@GeneratedValue
 	private Integer idQuestao;

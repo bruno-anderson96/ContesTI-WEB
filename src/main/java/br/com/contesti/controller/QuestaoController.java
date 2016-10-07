@@ -2,10 +2,14 @@ package br.com.contesti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.contesti.entidades.Alternativa;
+import br.com.contesti.entidades.Banca;
 import br.com.contesti.entidades.Questao;
 import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.QuestaoRepository;
@@ -23,23 +27,39 @@ public class QuestaoController {
 	private AlternativaRepository alternativaRepository;
 	
 
-	@RequestMapping(value = "/teste")
+//
+//	 @RequestMapping(value= "/bancaT", method=RequestMethod.POST)
+//	    public String createBanca(@RequestParam String descricao,Model model) {
+//			Banca newBanca = new Banca();
+//			newBanca.setDescricao(descricao);
+//			bancaRepository.save(newBanca);
+//	        model.addAttribute("banca", newBanca);
+//	        return "Sucesso ! ! !";
+//	    }
+	
+	
+	
+	@RequestMapping(value = "/criarQuestao", method=RequestMethod.POST)
     @ResponseBody  
-    public String create(String pergunta, String comentario, Integer ano, String descricao, Boolean correta){	
+    public String create(@RequestParam String pergunta,
+    					 @RequestParam Boolean correta,
+    					 @RequestParam String desc1,@RequestParam String desc2,@RequestParam String desc3,
+    					 @RequestParam String desc4,@RequestParam String desc5, Questao questao,
+    					 Model model){	
 		
-		System.out.println("ANTES DO TRY");
-    	try{    
     		
-    		System.out.println("NO TRY");
-    		Questao q1 = new Questao("pergunta","comentario",1996);
-    		Alternativa a1 = new Alternativa("reposta", false, q1);
-     		questaoRepository.save(q1);
-     		alternativaRepository.save(a1);
+    		questao.setPergunta(pergunta);
+    		
+    
+  
+     		questaoRepository.save(questao);
+    		alternativaRepository.save(new Alternativa(desc1, false,  questao));
+    		alternativaRepository.save(new Alternativa(desc2, false,  questao));
+    		alternativaRepository.save(new Alternativa(desc3, false,  questao));
+    		alternativaRepository.save(new Alternativa(desc4, false,  questao));
+    		alternativaRepository.save(new Alternativa(desc5, false,  questao));
 
-       	}catch(Exception ex){
-    		System.out.println("EXCEÇÃO");
-    		return "Error" + ex.toString();
-    	}
+       	
     	return "Sucesso!!!";
       
     }
