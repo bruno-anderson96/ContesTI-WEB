@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
- <form action="#" th:action="@{/testeT}" th:object="${banca}" method="post">
-    	<p>Descricao: <input type="text" th:field="*{descricao}" /></p>
+ <form action="#" th:action="@{testeT/bancaT}"  method="post">
+    	<p>Descricao: <input name="descricao"  /></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 
