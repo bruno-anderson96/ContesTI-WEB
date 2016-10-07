@@ -4,26 +4,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import br.com.contesti.entidades.Alternativa;
+import br.com.contesti.entidades.Questao;
 import br.com.contesti.entidades.Usuario;
 import br.com.contesti.repository.UsuarioRepository;
 
 @Controller
-@RequestMapping
+@RequestMapping("/cadastro")
 public class UsuarioController {
 
 	@Autowired
     private UsuarioRepository usuarioRepository;
 
-	@RequestMapping(value = "/testeUsuario")
-	@ResponseBody
-    public String create(Model model) {
-        model.addAttribute("usuario", new Usuario());
-     
-        return "Sucesso ! ! !";
-	
-	}
+	@RequestMapping(value = "/criarUsuario", method=RequestMethod.POST)
+    @ResponseBody  
+    public String create(@RequestParam String nome_usuario,@RequestParam String login,
+    					 @RequestParam String senha,@RequestParam String email,
+    					 Boolean permissao,
+    					 @RequestParam String confirmar_senha,
+    					 Model model){	
+		
+    		if(senha.equals(confirmar_senha)){    			
+    			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email,false));    	       	
+    	    	return "Sucesso!!!";
+    		}else{
+    			return "Senha diferente";
+    		}
+    }
 }
 	
 //	@RequestMapping(value = "/testeUsuario")
