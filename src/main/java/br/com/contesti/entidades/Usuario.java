@@ -35,12 +35,13 @@ public class Usuario implements Serializable {
 	@Column(nullable=true, length=1)
 	private Boolean permissao;
 	
-	public Usuario(String nome_usuario, String login, String senha, String email) {
+	public Usuario(String nome_usuario, String login, String senha, String email, Boolean permissao) {
 		// TODO Auto-generated constructor stub
 		this.nome_usuario = nome_usuario;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
+		this.permissao = permissao;
 	}
 	
 	public Usuario(){

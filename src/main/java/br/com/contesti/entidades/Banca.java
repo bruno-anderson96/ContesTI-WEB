@@ -19,16 +19,19 @@ public class Banca implements Serializable {
 	public Banca(String descricao){
 		this.descricao = descricao;
 	}
+	public Banca(){
+		
+	}
 	
 	@Id
 	@GeneratedValue
-	private Integer idBanca;
+	private Long idBanca;
 	@Column(nullable=true, length=100)
 	private String descricao;
-	public Integer getId() {
+	public Long getId() {
 		return idBanca;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.idBanca = id;
 	}
 	public String getDescricao() {
