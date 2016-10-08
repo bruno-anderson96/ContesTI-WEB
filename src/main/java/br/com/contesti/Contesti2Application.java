@@ -3,10 +3,13 @@ package br.com.contesti;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+
+import br.com.contesti.config.WebSecurityConfig;
 
 @SpringBootApplication
 
@@ -16,6 +19,7 @@ public class Contesti2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Contesti2Application.class, args);
 	}
+	
 	
 	@Bean
 	  public ViewResolver viewResolver() {
@@ -31,5 +35,8 @@ public class Contesti2Application {
 	    viewResolver.setTemplateEngine(engine);
 	    return viewResolver;
 	  }
+	
+	
+
 	
 }

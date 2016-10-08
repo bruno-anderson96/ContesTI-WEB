@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.contesti.repository.UsuarioRepository;
@@ -24,12 +25,14 @@ public class HomeController {
 		return "testeThyme";
 	}
 	
-	@RequestMapping("/verifica")
-	public String login(@RequestParam String senha,@RequestParam String login, Model model, Usuario usuario){
 	
+	@RequestMapping("/")
+	public String login(){	
+		System.out.println("Hello Login!!");		
 		return "Login";
-	}
 	
+	}
+		
 	@RequestMapping("/cadastroQuestao")
 	public String cadastroQuestao(){
 		System.out.println("Hello questao");
