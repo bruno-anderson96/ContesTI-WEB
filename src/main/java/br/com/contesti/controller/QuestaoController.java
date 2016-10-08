@@ -24,7 +24,7 @@ public class QuestaoController {
 	@Autowired
 	private AlternativaRepository alternativaRepository;
 
-	//
+	// testes
 	// @RequestMapping(value= "/bancaT", method=RequestMethod.POST)
 	// public String createBanca(@RequestParam String descricao,Model model) {
 	// Banca newBanca = new Banca();
