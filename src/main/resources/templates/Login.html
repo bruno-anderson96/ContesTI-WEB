@@ -40,7 +40,7 @@
 				<div class="col-md-6">
 					<div class="hidden-phone= navbar">
 						<ul class="nav nav-pills">
-							<form action="#" accept-charset="utf-8" class="form-login">
+							<form action="#" th:action="@{/verifica}"  method="post" accept-charset="utf-8" class="form-login">
 
 								<h1 class="form-login-heading text-center text-primary"
 									contenteditable="true">ContesTI</h1>
@@ -48,7 +48,7 @@
 								<div class="form-group">
 									<label class="col-xs-2 text-primary control-label">Usuário:</label>
 									<div class="col-xs-7">
-										<input type="text" class="form-control" name="input_nome"
+										<input type="text" class="form-control" name="login"
 											placeholder="Úsuario"/>
 									</div>
 								</div>
@@ -56,7 +56,7 @@
 								<div class="form-group">
 									<br/> <br/> <label class="col-xs-2 text-primary control-label text-right">Senha:</label>
 									<div class="col-xs-7">
-										<input type="password" class="form-control" name="input_senha" placeholder="Senha"/>
+										<input type="password" class="form-control" name="senha" placeholder="Senha"/>
 									</div>
 								</div>
 

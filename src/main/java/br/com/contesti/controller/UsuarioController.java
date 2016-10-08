@@ -1,5 +1,9 @@
 package br.com.contesti.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,15 +30,25 @@ public class UsuarioController {
     					 @RequestParam String senha,@RequestParam String email,
     					 Boolean permissao,
     					 @RequestParam String confirmar_senha,
-    					 Model model){	
+    					 Model model) throws NoSuchAlgorithmException, UnsupportedEncodingException{	
 		
-    		if(senha.equals(confirmar_senha)){    			
+    		if(senha.equals(confirmar_senha)){    	
+    			
+    			MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+    			byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
+    			StringBuilder hexString = new StringBuilder();
+    			for(byte b: messageDigest){
+    				hexString.append(String.format("%02X",  0xFF & b));
+    			}
+    			senha = hexString.toString();
     			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email,false));    	       	
     	    	return "Sucesso!!!";
     		}else{
     			return "Senha diferente";
     		}
     }
+	
+
 }
 	
 //	@RequestMapping(value = "/testeUsuario")

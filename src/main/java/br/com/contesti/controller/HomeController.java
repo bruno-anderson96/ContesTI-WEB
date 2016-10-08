@@ -1,11 +1,22 @@
 package br.com.contesti.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import br.com.contesti.repository.UsuarioRepository;
+import br.com.contesti.entidades.Usuario;
 
 @Controller
 public class HomeController {
 
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	@RequestMapping("/testeT")
 	public String testeT(){
@@ -13,9 +24,9 @@ public class HomeController {
 		return "testeThyme";
 	}
 	
-	@RequestMapping("/")
-	public String login(){
-		System.out.println("Hello LOGIN!");
+	@RequestMapping("/verifica")
+	public String login(@RequestParam String senha,@RequestParam String login, Model model, Usuario usuario){
+	
 		return "Login";
 	}
 	
