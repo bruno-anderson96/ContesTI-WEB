@@ -1,13 +1,18 @@
 package br.com.contesti.entidades;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="usuario")
 public class Usuario implements Serializable {
 
 	/**
@@ -18,6 +23,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue
+
 	private Long idUsuario;
 	
 	@Column(nullable=true, length=30)
@@ -33,15 +39,19 @@ public class Usuario implements Serializable {
 	private String email;
 	
 	@Column(nullable=true, length=1)
-	private Boolean permissao;
+	private Boolean ativo;
 	
-	public Usuario(String nome_usuario, String login, String senha, String email, Boolean permissao) {
+	@ManyToMany
+	@JoinTable(name="usuario_roles")
+	private Collection<Role> roles;
+	
+	public Usuario(String nome_usuario, String login, String senha, String email, Boolean ativo) {
 		// TODO Auto-generated constructor stub
 		this.nome_usuario = nome_usuario;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
-		this.permissao = permissao;
+		this.ativo = ativo;
 	}
 	
 	public Usuario(){
