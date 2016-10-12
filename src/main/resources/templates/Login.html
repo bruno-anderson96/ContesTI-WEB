@@ -3,110 +3,31 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title>Login</title>
-
-
-
-<link href="home/css/Login(1).css" 
-	  th:href="@{home/css/Login(1).css}" rel="stylesheet"/>
-	
-	
-	<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/js/bootstrap.min.js"
-			th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.js}"></script>
-		
-	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Authentication</title>
 </head>
-
 <body>
+<form th:action ="@{/}" method = "post">
+	<div>
+	<label>
+	Login:
+	</label>
+	<input type="text" name="login"/>
+	</div>
+	<div>
+	<label>
+	Senha:
+	</label>
+	<input type="password" name="senha"/>
+	</div>
+	<div>
 
-	<div class="section section-primary">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<a href="#"><img src="home/imagens/logo2.png" 
-					th:src="@{home/imagens/logo2.png}" class="img-responsive"/></a>
-					
-				</div>
-			</div>
-		</div>
+	<input type="submit" name="Login"/>
 	</div>
 
-	<div class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="hidden-phone= navbar">
-						<ul class="nav nav-pills">
-							<form action="#" th:action="@{/login}"  method="post" accept-charset="utf-8" class="form-login">
 
-								<h1 class="form-login-heading text-center text-primary"
-									contenteditable="true">ContesTI</h1>
-								<br/>
-								<div class="form-group">
-									<label class="col-xs-2 text-primary control-label">Usuário:</label>
-									<div class="col-xs-7">
-										<input type="text" class="form-control" name="login"
-											placeholder="Úsuario"/>
-									</div>
-								</div>
+</form>
 
-								<div class="form-group">
-									<br/> <br/> <label class="col-xs-2 text-primary control-label text-right">Senha:</label>
-									<div class="col-xs-7">
-										<input type="password" class="form-control" name="senha" placeholder="Senha"/>
-									</div>
-								</div>
-
-							</form>
-						</ul>
-					</div>
-			
-					
-
-					<div class="header clearfix">
-						<div id="nav"></div>
-						<div class="navigation"></div>
-						<br/>
-						<form action="cadastroQuestao">
-							<button type="submit" class="bg-info  btn-link btn-sm">Entrar</button>
-						</form>
-						<form action="cadastro">
-							<button type="submit" class="bg-info  btn-link btn-sm">Cadastra-se</button>
-						</form>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
-<footer class="section section-primary">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<h2>Bem vindos</h2>
-				<p class="lead">O sistema que tem como finalidade o auxílio a
-					estudantes da área de tecnologia da informação.</p>
-			</div>
-
-			<div class="col-md-1">
-				<a href="https://www.facebook.com/groups/1599466757020779/"><img src="home/imagens/facebook.png" 
-					th:src="@{home//imagens/facebook.png}"  class="img-responsive img-rounded"/></a>
-			</div>
-			<div class="col-md-1">
-				<a href="https://mail.google.com/mail/u/0/#inbox"><img src="home/imagens/Gmail.png" 
-					th:src="@{home//imagens/Gmail.png}"  class="img-responsive img-rounded"/></a>
-			</div>
-			<div class="col-md-2">
-				<a href="https://play.google.com/store"><img src="home/imagens/playstore.png" 
-					th:src="@{home//imagens/playstore.png}"  class="img-responsive"/></a>
-			</div>
-		</div>
-	</div>
-</footer>
-
-
 </html>
