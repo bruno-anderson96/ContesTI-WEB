@@ -1,4 +1,4 @@
-package br.com.contesti.entidades;
+	package br.com.contesti.entidades;
 
 import java.io.Serializable;
 import java.util.Collection;

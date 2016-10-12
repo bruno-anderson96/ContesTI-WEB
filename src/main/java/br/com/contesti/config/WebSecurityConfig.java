@@ -21,9 +21,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
 //		auth.inMemoryAuthentication().withUser("prof1").password("123").roles("PROF");
 //		auth.inMemoryAuthentication().withUser("est1").password("123").roles("ESTUDANTE");
-		
-//		auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("select username as principal, password as credentials, true from usuario where username = ?")
-//		.authoritiesByUsernameQuery("select usuario_username as principal, roles_role as role from usuario_roles where usuario_username = ?").rolePrefix("ROLE_");
+	
+		auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?")
+		.authoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?").rolePrefix("ROLE_");
 		
 	}
 	
