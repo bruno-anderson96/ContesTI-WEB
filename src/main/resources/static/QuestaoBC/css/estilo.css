@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Lato');
+@import url('https://fonts.googleapis.com/css?family=Bree Serif|Imprima');
 
 html {
   font-family: sans-serif;
@@ -7,7 +7,6 @@ html {
 }
 body {
   margin: 0;
-  
 }
 article,
 aside,
@@ -243,8 +242,10 @@ th {
   .label {
     border: 1px solid #000;
   }
+    
   .table {
     border-collapse: collapse !important;
+      
   }
   .table td,
   .table th {
@@ -1074,7 +1075,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: Lato;
+  font-family: Imprima;
   font-size: 14px;
   line-height: 1.42857143;
   color: #000000;
@@ -1176,7 +1177,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Lato;
+  font-family: Bree Serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -1580,7 +1581,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 970px;
+    width: 1170px;
   }
 }
 .container-fluid {
@@ -5813,7 +5814,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: Lato;
+  font-family: Imprima;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5920,7 +5921,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: Lato;
+  font-family: Imprima;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;

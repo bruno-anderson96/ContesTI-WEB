@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadastrar Questão de Úsuario</title>
+
+<link href="questaoUser/css/estilo.css" th:href="@{questaoUser/css/estilo.css}"
+	rel="stylesheet" />
+<link href="css/bootstrap-3.3.6/css/bootstrap.min.css"
+	th:href="@{questaoUser/css/bootstrap-3.3.6/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+	th:href="@{css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+
+    <script src="questaoUser/css/bootstrap-3.3.6/js/bootstrap.min.js" th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" th:href="@{jquery/2.0.3/jquery.min.js}"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js " th:href="@{bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+
+
+</head>
+    
+    <body data-spy="scroll">
+    <div class="section section-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <h2 class="text-left">Cadastra Questões de Úsuario</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+       <div class="btn-group">
+       <button type="button" class="btn btn btn-success btn-default">Disciplina</button>
+       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Disciplina</span> </button>
+        <ul class="dropdown-menu">
+         
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Engenharia de Software <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p> Assunto:</p>
+              <li class="divider"></li>
+              <li><a href="#">Ciclo de Vida</a></li>
+              <li><a href="#">Diagrama da UML</a></li>
+              <li><a href="#">Extreme Programing</a></li>
+              <li><a href="#">Scrum</a></li>
+              <li><a href="#">FDD - Feature Driven Design Manifesto Agil</a></li>
+              <li><a href="#">TDD - Teste Driven Develapment</a></li>
+              <li><a href="#">SweBook</a></li>
+              <li><a href="#">Modelo Cascata</a></li>
+              <li><a href="#">Metricas de Software</a></li>
+ </ul>
+</li>
+          
+          <li class="dropdown-submenu">
+            <a class="test" href="#"> Redes <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p> Assunto:</p>
+              <li class="divider"></li>
+              <li><a href="#">TCP/IP</a></li>
+              <li><a href="#">Topologia de Rede</a></li>
+              <li><a href="#">Modelo OSI</a></li>
+              <li><a href="#">Meios de Tranmissão</a></li>
+              <li><a href="#">Meios de Redes</a></li>
+              <li><a href="#">DHCP</a></li>
+              <li><a href="#">DNS</a></li>
+              <li><a href="#">Firewall</a></li>
+ </ul>
+</li>
+         
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Governança TI <span class="caret"></span></a>
+            
+            <ul class="dropdown-menu">
+            <p> Assunto:</p>
+            <li class="divider"></li>
+              <li><a href="#">PMBOOK</a></li>
+              <li><a href="#">IT/L</a></li>
+              <li><a href="#">COBIT</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Desenvolvimento de Sistemas <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+             <p> Assunto:</p>
+             <li class="divider"></li>
+              <li><a href="#">Algoritmos</a></li>
+              <li><a href="#">C</a></li>
+              <li><a href="#">C++</a></li>
+              <li><a href="#">CSS</a></li>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">JAVA</a></li>
+              <li><a href="#">JavaScript</a></li>
+              <li><a href="#">PHP</a></li>
+              <li><a href="#">Orientação a Objetos</a></li>
+ </ul>
+</li>
+         
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Banco de Dados <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p> Assunto:</p>
+              <li class="divider"></li>
+              <li><a href="#">SGBD - SISI Genrenciador de Banco de Dados</a></li>
+              <li><a href="#">Mysql</a></li>
+              <li><a href="#">Sql</a></li>
+              <li><a href="#">Modelagem Relacional</a></li>
+              <li><a href="#">Banco de Dados Hierarquico</a></li>
+              <li><a href="#">Banco de Dados a Objetos</a></li>
+              <li><a href="#">Arquitetura de Banco de Dados</a></li>
+ </ul>
+</li>
+         
+          <li class="dropdown-submenu">
+            <a class="test" href="#">Segurança da Informação <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <p> Assunto:</p>
+              <li class="divider"></li>
+              <li><a href="#">Conceitos Basicos</a></li>
+              <li><a href="#">Assinatura Digital</a></li>
+              <li><a href="#">CIDA - Confiabilidade, Integridade, Disponibilidade</a></li>
+              <li><a href="#">Criptografia</a></li>
+              <li><a href="#">Malware</a></li>
+              <li><a href="#">Proxy</a></li>
+ </ul>
+</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+              $('.dropdown-submenu a.test').on("click", function(e){
+              $(this).next('ul').toggle();
+              e.stopPropagation();
+              e.preventDefault();
+               });
+              });
+    </script>
+    <form action="#" th:action="@{CadastroQuestaoUser/criarQuestao}" role="form" class="form-horizontal" method="post">
+      <div class="form-group has-feedback">
+        <label class="col-xs-3 text-primary control-label">Questão</label>
+        <div class="col-xs-4">
+          <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
+        </div>
+        </div>
+      
+      <div class="form-group">
+        <label class="col-xs-3 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="A"/> ( A )</label>
+          <div class="col-xs-4">
+          <input name="desc1" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-xs-3 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="B"/> ( B )</label>
+        <div class="col-xs-4">
+          <input name="desc2" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label class="col-xs-3 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="C"/> ( C )</label>
+        <div class="col-xs-4">
+          <input name="desc3" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="col-xs-3 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="D"/> ( D )</label>
+        <div class="col-xs-4">
+          <input name="desc4" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <label class="col-xs-3 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="E"/> ( E )</label>
+        <div class="col-xs-4">
+          <input name="desc5" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+    
+       <div class="col-xs-3"></div>
+       <button type="submit" class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
+       <button type="submit" class="bg-info btn btn-danger btn btn-primary btn-sm">Voltar</button>
+       <input type="reset" class="bg-info btn btn-warning btn-primary btn-sm" value="Limpar Campos"/>
+       <div class="col-xs-2"></div>
+      
+      
+    </form>
+    <div class="section section-primary"></div>
+    <div class="section section-primary"></div>
+    <div class="container-fluid"></div>
+    
+  
+
+</body>
+
+</html>

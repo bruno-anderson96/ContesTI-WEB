@@ -37,7 +37,12 @@ public class HomeController {
 	@RequestMapping("/cadastroQuestao")
 	public String cadastroQuestao(){
 		System.out.println("Hello questao");
-		return "/CadastroQuestao";
+		return "/CadastroQuestaoUser";
+	}
+	
+	@RequestMapping("/cadastroQuestaoBC")
+	public String cadastroQuestaoBC(){
+		return "/CadastroQuestaoBC";
 	}
 	
 	@RequestMapping("/cadastro")
