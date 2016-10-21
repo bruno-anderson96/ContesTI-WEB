@@ -52,6 +52,12 @@
 						<div id="nav"></div>
 						<div class="navigation"></div>
 						<br/>
+						 <div th:if="${param.error}">
+            Login ou Senha inválidos!
+        </div>
+        <div th:if="${param.logout}">
+            Deslogado com sucesso.
+        </div>
 					  <form action="#" th:action="@{/}"  method="post" accept-charset="utf-8" class="form-login">
 					  
 					  <h1 class="form-login-heading text-center text-primary" contenteditable="true">ContesTI</h1>

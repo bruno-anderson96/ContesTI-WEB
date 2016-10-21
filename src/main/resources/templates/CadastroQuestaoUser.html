@@ -21,188 +21,158 @@
     <script src="questaoUser/css/bootstrap-3.3.6/js/bootstrap.min.js" th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" th:href="@{jquery/2.0.3/jquery.min.js}"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js " th:href="@{bootstrap/3.3.4/js/bootstrap.min.js}"></script>
-
+ 
+ 
+ <style>
+     select{
+     background:#FFFFFF;
+     font-weight:bold;
+     font-style:normal;
+     font-family:Verdana;
+     font-size:14px;
+     color:#1E90FF;
+     }
+</style>
 
 </head>
     
-    <body data-spy="scroll">
+   <body data-spy="scroll">
     <div class="section section-primary">
+     <div class="background-image background-image-fixed" style="background-image : url('https://unsplash.imgix.net/photo-1415871989540-61fe9268d3c8?w=1024&amp;q=50&amp;fm=jpg&amp;s=d4ccd3c8661437d6e3ea5e88c63c647f')"></div>
       <div class="container">
         <div class="row">
-          <div class="col-md-9">
-            <h2 class="text-left">Cadastra Questões de Úsuario</h2>
+          <div class="col-md-7">
+            <h2 class="text-left">Cadastre-se sua Questão</h2>
           </div>
         </div>
       </div>
     </div>
-    <div class="container">
-       <div class="btn-group">
-       <button type="button" class="btn btn btn-success btn-default">Disciplina</button>
-       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Disciplina</span> </button>
-        <ul class="dropdown-menu">
-         
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Engenharia de Software <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <p> Assunto:</p>
-              <li class="divider"></li>
-              <li><a href="#">Ciclo de Vida</a></li>
-              <li><a href="#">Diagrama da UML</a></li>
-              <li><a href="#">Extreme Programing</a></li>
-              <li><a href="#">Scrum</a></li>
-              <li><a href="#">FDD - Feature Driven Design Manifesto Agil</a></li>
-              <li><a href="#">TDD - Teste Driven Develapment</a></li>
-              <li><a href="#">SweBook</a></li>
-              <li><a href="#">Modelo Cascata</a></li>
-              <li><a href="#">Metricas de Software</a></li>
- </ul>
-</li>
+    <div class="section section-primary text-left">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1">
+            <label>Disciplina:</label>
+          </div>
+          <div class="col-md-3">
+           <form name="formulario" method="post" action="cadastroUser">
+              <select id="lista1">
+                <option value="1"></option>
+                <option value="BD">Banco de Dados</option>
+                <option value="DS">Desenvolvimento de Sistemas</option>
+                <option value="ES">Engenharia de Software</option>
+                <option value="G-TI">Governança TI</option>
+                <option value="RD">Redes</option>
+                <option value="SI">Segurança da
+                Informação</option>
+              </select>
+            </form>
+          </div>
+          <div class="col-md-1">
+            <label>Assunto:</label>
+          </div>
+          <div class="col-md-3 text-justify">
           
-          <li class="dropdown-submenu">
-            <a class="test" href="#"> Redes <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <p> Assunto:</p>
-              <li class="divider"></li>
-              <li><a href="#">TCP/IP</a></li>
-              <li><a href="#">Topologia de Rede</a></li>
-              <li><a href="#">Modelo OSI</a></li>
-              <li><a href="#">Meios de Tranmissão</a></li>
-              <li><a href="#">Meios de Redes</a></li>
-              <li><a href="#">DHCP</a></li>
-              <li><a href="#">DNS</a></li>
-              <li><a href="#">Firewall</a></li>
- </ul>
-</li>
-         
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Governança TI <span class="caret"></span></a>
-            
-            <ul class="dropdown-menu">
-            <p> Assunto:</p>
-            <li class="divider"></li>
-              <li><a href="#">PMBOOK</a></li>
-              <li><a href="#">IT/L</a></li>
-              <li><a href="#">COBIT</a></li>
-            </ul>
-          </li>
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Desenvolvimento de Sistemas <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-             <p> Assunto:</p>
-             <li class="divider"></li>
-              <li><a href="#">Algoritmos</a></li>
-              <li><a href="#">C</a></li>
-              <li><a href="#">C++</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">HTML</a></li>
-              <li><a href="#">JAVA</a></li>
-              <li><a href="#">JavaScript</a></li>
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">Orientação a Objetos</a></li>
- </ul>
-</li>
-         
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Banco de Dados <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <p> Assunto:</p>
-              <li class="divider"></li>
-              <li><a href="#">SGBD - SISI Genrenciador de Banco de Dados</a></li>
-              <li><a href="#">Mysql</a></li>
-              <li><a href="#">Sql</a></li>
-              <li><a href="#">Modelagem Relacional</a></li>
-              <li><a href="#">Banco de Dados Hierarquico</a></li>
-              <li><a href="#">Banco de Dados a Objetos</a></li>
-              <li><a href="#">Arquitetura de Banco de Dados</a></li>
- </ul>
-</li>
-         
-          <li class="dropdown-submenu">
-            <a class="test" href="#">Segurança da Informação <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <p> Assunto:</p>
-              <li class="divider"></li>
-              <li><a href="#">Conceitos Basicos</a></li>
-              <li><a href="#">Assinatura Digital</a></li>
-              <li><a href="#">CIDA - Confiabilidade, Integridade, Disponibilidade</a></li>
-              <li><a href="#">Criptografia</a></li>
-              <li><a href="#">Malware</a></li>
-              <li><a href="#">Proxy</a></li>
- </ul>
-</li>
-        </ul>
+          <form name="formulario" method="post" action="cadastroUser">
+             
+              <select id="lista2">
+                <option value="2"></option>
+                <option value="CV">Ciclo de Vida</option>
+                <option value="D-UML">Diagrama da UML</option>
+                <option value="SC">Scrum</option>
+                <option value="FDD">FDD - Feature Driven Design Manifesto Agil</option>
+                <option value="TDD">TDD - Teste Driven Develapment</option>
+                <option value="SB">SweBook</option>
+                <option value="MC">Modelo Cascata</option>
+                <option value="MS">Metricas de Software</option>
+                <option value="TCP">TCP/IP</option>
+                <option value="TLG">Topologia de Rede</option>
+                <option value="MS">Modelo OSI</option>
+                <option value="MT">Meios de Transmissão</option>
+                <option value="MR">Meios de Redes</option>
+                <option value="DHCP">DHCP</option>
+                <option value="DNS">DNS</option>
+                <option value="FW">Firewall</option>
+                <option value="PMBOOK">PMBOOK</option>
+                <option value="IT/L">IT/L</option>
+                <option value="MS">COBIT</option>
+                <option value="AG">Algoritmos</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="CSS">CSS</option>
+                <option value="HTML">HTML</option>
+                <option value="JAVA">JAVA</option>
+                <option value="PHP">PHP</option>
+                <option value="OB">Orientação a Objeto</option>
+                <option value="SGBD">SGBD - SISI Gerenciamneto de Banco de Dados</option>
+                <option value="Mysql">Mysql</option>
+                <option value="Sql">Sql</option>
+                <option value="MR">Modelagem Relacional</option>
+                <option value="BD">Banco de Dados</option>
+                <option value="BD">Banco de dado a Objeto</option>
+                <option value="BD">Arquitetura de Banco de Dados</option>
+                <option value="CB">Conceito Basico</option>
+                <option value="AD">Assinatura Digital</option>
+                <option value="CIDA">CIDA - Confiabilidade, Integridade, Discponibilidade</option>
+                <option value="CG">Criptografia</option>
+                <option value="MW">Malware</option>
+                <option value="PX">Proxy</option>
+              </select>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <script>
-      $(document).ready(function(){
-              $('.dropdown-submenu a.test').on("click", function(e){
-              $(this).next('ul').toggle();
-              e.stopPropagation();
-              e.preventDefault();
-               });
-              });
-    </script>
     <form action="#" th:action="@{CadastroQuestaoUser/criarQuestao}" role="form" class="form-horizontal" method="post">
       <div class="form-group has-feedback">
-        <label class="col-xs-3 text-primary control-label">Questão</label>
+        <label class="col-xs-4 text-primary control-label">Questão</label>
         <div class="col-xs-4">
           <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
         </div>
-        </div>
-      
+      </div>
       <div class="form-group">
-        <label class="col-xs-3 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="A"/> ( A )</label>
-          <div class="col-xs-4">
+        <label class="col-xs-4 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="A"/> ( A ) </label>
+        <div class="col-xs-4">
           <input name="desc1" type="text" class="form-control input-lg" placeholder="Aternativa"/>
         </div>
       </div>
-      
       <div class="form-group">
-        <label class="col-xs-3 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="B"/> ( B )</label>
+        <label class="col-xs-4 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="B"/> ( B ) </label>
         <div class="col-xs-4">
           <input name="desc2" type="text" class="form-control input-lg" placeholder="Aternativa"/>
         </div>
       </div>
-     
       <div class="form-group">
-        <label class="col-xs-3 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="C"/> ( C )</label>
+        <label class="col-xs-4 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="C"/> ( C ) </label>
         <div class="col-xs-4">
           <input name="desc3" type="text" class="form-control input-lg" placeholder="Aternativa"/>
         </div>
       </div>
-      
       <div class="form-group">
-        <label class="col-xs-3 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="D"/> ( D )</label>
+        <label class="col-xs-4 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="D"/> ( D ) </label>
         <div class="col-xs-4">
           <input name="desc4" type="text" class="form-control input-lg" placeholder="Aternativa"/>
         </div>
       </div>
-     
       <div class="form-group">
-        <label class="col-xs-3 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="E"/> ( E )</label>
+        <label class="col-xs-4 text-primary  control-label">
+          <input type="radio" name="isCorreta" value="E"/> ( E ) </label>
         <div class="col-xs-4">
           <input name="desc5" type="text" class="form-control input-lg" placeholder="Aternativa"/>
         </div>
       </div>
-    
-       <div class="col-xs-3"></div>
-       <button type="submit" class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
-       <button type="submit" class="bg-info btn btn-danger btn btn-primary btn-sm">Voltar</button>
-       <input type="reset" class="bg-info btn btn-warning btn-primary btn-sm" value="Limpar Campos"/>
-       <div class="col-xs-2"></div>
-      
-      
+      <div class="col-xs-4"></div>
+      <button type="submit" class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
+      <button type="submit" class="bg-info btn btn-danger btn btn-primary btn-sm">Voltar</button>
+      <input type="reset" class="bg-info btn btn-warning btn-primary btn-sm" value="Limpar Campos"/>
+      <div class="col-xs-2"></div>
     </form>
-    <div class="section section-primary"></div>
-    <div class="section section-primary"></div>
-    <div class="container-fluid"></div>
-    
-  
+     <div class="section section-primary">
+      <div class="background-image background-image-fixed" style="background-image : url('https://unsplash.imgix.net/photo-1415871989540-61fe9268d3c8?w=1024&amp;q=50&amp;fm=jpg&amp;s=d4ccd3c8661437d6e3ea5e88c63c647f')"></div>
+     </div>
 
 </body>
 

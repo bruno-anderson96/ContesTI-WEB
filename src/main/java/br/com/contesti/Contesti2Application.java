@@ -9,8 +9,6 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
-import br.com.contesti.config.WebSecurityConfig;
-
 @SpringBootApplication
 
 public class Contesti2Application {

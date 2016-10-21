@@ -26,6 +26,10 @@ public class HomeController {
 		return "testeThyme";
 	}
 	
+	@RequestMapping("/cadastroBC")
+	public String cadastroBC(){
+		return "CadastroQuestaoBC";
+	}
 	
 	@RequestMapping("/")
 	public String login(){	

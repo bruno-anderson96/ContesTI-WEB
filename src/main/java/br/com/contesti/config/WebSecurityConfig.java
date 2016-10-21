@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
    http.csrf().disable().authorizeRequests()  
 	 		.antMatchers("/cadastroQuestao").hasRole("ADMIN")
 	        .antMatchers("/cadastro").permitAll()
-	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/cadastroQuestao").failureUrl("/sobre")
+	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/cadastroQuestao")
 	        .usernameParameter("login").passwordParameter("senha")
 	        .and().csrf()
 	        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
