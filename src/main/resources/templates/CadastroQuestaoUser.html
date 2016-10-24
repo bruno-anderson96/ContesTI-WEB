@@ -7,7 +7,7 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Cadastrar Questão de Úsuario</title>
+<title>Cadastrar Questão de Usuário</title>
 
 <link href="questaoUser/css/estilo.css" th:href="@{questaoUser/css/estilo.css}"
 	rel="stylesheet" />
@@ -36,9 +36,10 @@
 
 </head>
     
-   <body data-spy="scroll">
+    
+<body data-spy="scroll">
     <div class="section section-primary">
-     <div class="background-image background-image-fixed" style="background-image : url('https://unsplash.imgix.net/photo-1415871989540-61fe9268d3c8?w=1024&amp;q=50&amp;fm=jpg&amp;s=d4ccd3c8661437d6e3ea5e88c63c647f')"></div>
+      <div class="background-image background-image-fixed" style="background-image : url('https://s3.amazonaws.com/ciranda/entities/1/covers/416_9912a712d496a39cb3c3263ebd4d1e00dc920055.jpg')"></div>
       <div class="container">
         <div class="row">
           <div class="col-md-7">
@@ -47,14 +48,12 @@
         </div>
       </div>
     </div>
-    <div class="section section-primary text-left">
+    <div class="section section-primary">
       <div class="container">
         <div class="row">
-          <div class="col-md-1">
-            <label>Disciplina:</label>
-          </div>
-          <div class="col-md-3">
-           <form name="formulario" method="post" action="cadastroUser">
+          <div class="col-md-10">
+            <form name="formulario" method="post" action="cadastroBC">
+              <label>Disciplina:</label>
               <select id="lista1">
                 <option value="1"></option>
                 <option value="BD">Banco de Dados</option>
@@ -62,19 +61,10 @@
                 <option value="ES">Engenharia de Software</option>
                 <option value="G-TI">Governança TI</option>
                 <option value="RD">Redes</option>
-                <option value="SI">Segurança da
-                Informação</option>
+                <option value="SI">Segurança da Informação</option>
               </select>
-            </form>
-          </div>
-          <div class="col-md-1">
-            <label>Assunto:</label>
-          </div>
-          <div class="col-md-3 text-justify">
-          
-          <form name="formulario" method="post" action="cadastroUser">
-             
-              <select id="lista2">
+              <label>Assunto:</label>
+              <select id="lista1">
                 <option value="2"></option>
                 <option value="CV">Ciclo de Vida</option>
                 <option value="D-UML">Diagrama da UML</option>
@@ -117,63 +107,64 @@
                 <option value="MW">Malware</option>
                 <option value="PX">Proxy</option>
               </select>
+             
+              <div class="form-group has-feedback">
+              <br/>
+        <label class="col-xs-9 text-while control-label">Questão</label>
+        <br/>
+        <div class="col-xs-5">
+          <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-9 text-while  control-label">
+          <input type="radio" name="isCorreta" value="A"/> ( A ) </label>
+        <div class="col-xs-5">
+          <input name="desc1" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-9 text-while  control-label">
+          <input type="radio" name="isCorreta" value="B"/> ( B ) </label>
+        <div class="col-xs-5">
+          <input name="desc2" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-9 text-while  control-label">
+          <input type="radio" name="isCorreta" value="C"/> ( C ) </label>
+        <div class="col-xs-5">
+          <input name="desc3" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-9 text-while  control-label">
+          <input type="radio" name="isCorreta" value="D"/> ( D ) </label>
+        <div class="col-xs-5">
+          <input name="desc4" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-9 text-while  control-label">
+          <input type="radio" name="isCorreta" value="E"/> ( E ) </label>
+        <div class="col-xs-5">
+          <input name="desc5" type="text" class="form-control input-lg" placeholder="Aternativa"/>
+        </div>
+      </div>
+      <div class="col-5">
+      <button type="submit" class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
+      <button type="submit" class="bg-info btn btn-danger btn btn-primary btn-sm">Voltar</button>
+      <input type="reset" class="bg-info btn btn-warning btn-primary btn-sm" value="Limpar Campos"/>
+     </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    <form action="#" th:action="@{CadastroQuestaoUser/criarQuestao}" role="form" class="form-horizontal" method="post">
-      <div class="form-group has-feedback">
-        <label class="col-xs-4 text-primary control-label">Questão</label>
-        <div class="col-xs-4">
-          <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-xs-4 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="A"/> ( A ) </label>
-        <div class="col-xs-4">
-          <input name="desc1" type="text" class="form-control input-lg" placeholder="Aternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-xs-4 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="B"/> ( B ) </label>
-        <div class="col-xs-4">
-          <input name="desc2" type="text" class="form-control input-lg" placeholder="Aternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-xs-4 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="C"/> ( C ) </label>
-        <div class="col-xs-4">
-          <input name="desc3" type="text" class="form-control input-lg" placeholder="Aternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-xs-4 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="D"/> ( D ) </label>
-        <div class="col-xs-4">
-          <input name="desc4" type="text" class="form-control input-lg" placeholder="Aternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-xs-4 text-primary  control-label">
-          <input type="radio" name="isCorreta" value="E"/> ( E ) </label>
-        <div class="col-xs-4">
-          <input name="desc5" type="text" class="form-control input-lg" placeholder="Aternativa"/>
-        </div>
-      </div>
-      <div class="col-xs-4"></div>
-      <button type="submit" class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
-      <button type="submit" class="bg-info btn btn-danger btn btn-primary btn-sm">Voltar</button>
-      <input type="reset" class="bg-info btn btn-warning btn-primary btn-sm" value="Limpar Campos"/>
-      <div class="col-xs-2"></div>
-    </form>
-     <div class="section section-primary">
-      <div class="background-image background-image-fixed" style="background-image : url('https://unsplash.imgix.net/photo-1415871989540-61fe9268d3c8?w=1024&amp;q=50&amp;fm=jpg&amp;s=d4ccd3c8661437d6e3ea5e88c63c647f')"></div>
-     </div>
+    <div class="section section-primary text-left"></div>
+    <div class="section section-primary">
+      <div class="background-image background-image-fixed" style="background-image : url('https://s3.amazonaws.com/ciranda/entities/1/covers/416_9912a712d496a39cb3c3263ebd4d1e00dc920055.jpg')"></div>
+    </div>
+  
 
-</body>
-
-</html>
+</body></html>
