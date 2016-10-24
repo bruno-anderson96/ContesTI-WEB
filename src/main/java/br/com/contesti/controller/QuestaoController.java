@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.contesti.entidades.Alternativa;
-import br.com.contesti.entidades.Banca;
+import br.com.contesti.entidades.Assunto;
+import br.com.contesti.entidades.Disciplina;
 import br.com.contesti.entidades.Questao;
 import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.QuestaoRepository;
@@ -34,12 +35,12 @@ public class QuestaoController {
 	// return "Sucesso ! ! !";
 	// }
 
-	@RequestMapping(value = "/criarQuestao", method = RequestMethod.POST)
+	@RequestMapping(value = "/criarQuestaoUsuario", method = RequestMethod.POST)
 	@ResponseBody
 	public String create(@RequestParam String pergunta, @RequestParam String isCorreta, Boolean correta1,
 			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
-			@RequestParam String desc5, Questao questao, Model model) {
+			@RequestParam String desc5, @RequestParam Disciplina disciplina,@RequestParam Assunto assunto, Questao questao, Model model) {
 
 		questao.setPergunta(pergunta);
 		
