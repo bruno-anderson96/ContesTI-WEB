@@ -53,21 +53,21 @@
         <div class="row">
           <div class="col-md-10">
             <form name="formulario" method="post" th:action="@{cadastroQuestao/criarQuestaoConcurso}">
-              <label>Disciplina:</label> <select id="idDisciplina">
+              <label>Disciplina:</label> <select name="disciplina" id="idDisciplina">
 							<option value=""></option>
-							<option th:value="${listarDisciplina.id}"
+							<option th:value="${listarDisciplina}"
 								th:each="listarDisciplina : ${listarDisciplina}"
 								th:text="${listarDisciplina.descricao}"></option>
-						</select> <label>Assunto:</label> <select id="idDisciplina">
+						</select> <label>Assunto:</label> <select name="assunto" >
 							<option value=""></option>
-							<option th:value="${listarAssunto.id}"
+							<option th:value="${listarAssunto}"
 								th:each="listarAssunto : ${listarAssunto}"
 								th:text="${listarAssunto.descricao}"></option>
 						</select>
               <label>Banca:</label>
-              <select id="idDisciplina">
+              <select name="banca"">
 							<option value=""></option>
-							<option th:value="${listarBanca.id}"
+							<option th:value="${listarBanca}"
 								th:each="listarBanca : ${listarBanca}"
 								th:text="${listarBanca.descricao}"></option>
 						</select>

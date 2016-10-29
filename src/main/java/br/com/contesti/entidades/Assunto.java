@@ -21,14 +21,10 @@ public class Assunto implements Serializable {
 		this.disciplina = disciplina;
 	}
 	
-	
-	
 	public Assunto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	@Id
 	@GeneratedValue

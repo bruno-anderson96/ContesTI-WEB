@@ -53,9 +53,9 @@ public class QuestaoController {
 	public String create(@RequestParam String pergunta, @RequestParam String isCorreta, Boolean correta1,
 			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
-			@RequestParam String desc5, @RequestParam Disciplina disciplina,@RequestParam Assunto assunto, Questao questao, Model model) {
+			@RequestParam String desc5, @RequestParam Disciplina disciplina,@RequestParam Assunto assunto,
+			Questao questao, Model model) {
 
-		questao.setPergunta(pergunta);
 				
 		if (isCorreta.equals("A")) {
 			correta1 = true;
@@ -81,8 +81,10 @@ public class QuestaoController {
 			correta5 = true;
 		} else {
 			correta5 = false;
-		}		
-		questaoRepository.save(questao);
+		}	
+		questao.setPergunta(pergunta);
+		
+		questaoRepository.save(new Questao(questao,assunto));
 		
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
 		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
@@ -102,8 +104,8 @@ public class QuestaoController {
 			@RequestParam Disciplina disciplina,@RequestParam Assunto assunto, @RequestParam Banca banca,
 			Questao questao,Model model) {
 
-		questao.setPergunta(pergunta);
-				
+		
+		
 		if (isCorreta.equals("A")) {
 			correta1 = true;
 		} else {
@@ -129,7 +131,11 @@ public class QuestaoController {
 		} else {
 			correta5 = false;
 		}		
-		questaoRepository.save(questao);
+
+		questao.setPergunta(pergunta);
+		
+		
+		questaoRepository.save(new Questao(questao,assunto,banca));
 		
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
 		alternativaRepository.save(new Alternativa(desc2, correta2, questao));

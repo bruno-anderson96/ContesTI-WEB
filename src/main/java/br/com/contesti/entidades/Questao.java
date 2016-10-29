@@ -21,6 +21,14 @@ public class Questao implements Serializable {
 		this.comentario = comentario;
 		this.ano = ano;
 	}
+	public Questao(Questao questao, Assunto assunto, Banca banca){
+		this.assunto = assunto;
+		this.banca = banca;
+	}
+	
+	public Questao(Questao questao, Assunto assunto){
+		this.assunto = assunto;
+	}
 	
 	@Id
 	@GeneratedValue
@@ -38,6 +46,9 @@ public class Questao implements Serializable {
 	
 	@ManyToOne
 	private Assunto assunto;
+	
+	@ManyToOne
+	private Banca banca;
 	
 	public Integer getIdQuestao() {
 		return idQuestao;
