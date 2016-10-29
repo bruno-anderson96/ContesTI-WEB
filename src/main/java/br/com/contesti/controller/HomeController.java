@@ -1,17 +1,13 @@
 package br.com.contesti.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import br.com.contesti.repository.AssuntoRepository;
+import br.com.contesti.repository.DisciplinaRepository;
 import br.com.contesti.repository.UsuarioRepository;
-import br.com.contesti.entidades.Usuario;
 
 @Controller
 public class HomeController {
@@ -19,6 +15,12 @@ public class HomeController {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+	
+	@Autowired
+	private AssuntoRepository assuntoRepository;
 	
 	@RequestMapping("/testeT")
 	public String testeT(){
@@ -39,9 +41,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/cadastroQuestao")
-	public String cadastroQuestao(){
-		System.out.println("Hello questao");
-		return "/CadastroQuestaoUser";
+	public ModelAndView cadastroQuestao(){
+		ModelAndView mav = new ModelAndView("CadastroQuestaoUser");
+		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
+		mav.addObject("listarAssunto", assuntoRepository.findAll());	
+		return mav;
 	}
 	
 	@RequestMapping("/cadastroQuestaoBC")

@@ -13,6 +13,8 @@ import br.com.contesti.entidades.Assunto;
 import br.com.contesti.entidades.Disciplina;
 import br.com.contesti.entidades.Questao;
 import br.com.contesti.repository.AlternativaRepository;
+import br.com.contesti.repository.AssuntoRepository;
+import br.com.contesti.repository.DisciplinaRepository;
 import br.com.contesti.repository.QuestaoRepository;
 
 @Controller
@@ -24,6 +26,12 @@ public class QuestaoController {
 
 	@Autowired
 	private AlternativaRepository alternativaRepository;
+	
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+	
+	@Autowired
+	private AssuntoRepository assuntoRepository;
 
 	// testes
 	// @RequestMapping(value= "/bancaT", method=RequestMethod.POST)

@@ -22,6 +22,14 @@ public class Assunto implements Serializable {
 	}
 	
 	
+	
+	public Assunto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	@Id
 	@GeneratedValue
 	private Integer idAssunto;

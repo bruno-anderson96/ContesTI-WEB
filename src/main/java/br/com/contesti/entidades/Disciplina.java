@@ -19,7 +19,14 @@ public class Disciplina implements Serializable {
 	public Disciplina(String descricao){
 		this.descricao = descricao;
 	}
+	
  	
+	public Disciplina() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	@Id
 	@GeneratedValue
 	private Integer idDisciplina;
