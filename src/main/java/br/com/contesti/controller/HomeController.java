@@ -54,7 +54,7 @@ public class HomeController {
 	
 	@RequestMapping("/cadastroQuestaoConcurso")
 	public ModelAndView cadastroQuestaoConcurso(){
-		ModelAndView mav = new ModelAndView("CadastroQuestaoConcurso");
+		ModelAndView mav = new ModelAndView("CadastroQuestaoBC");
 		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
 		mav.addObject("listarAssunto", assuntoRepository.findAll());
 		mav.addObject("listarBanca", bancaRepository.findAll());

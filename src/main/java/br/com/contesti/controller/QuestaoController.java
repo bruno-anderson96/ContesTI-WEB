@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.contesti.entidades.Alternativa;
 import br.com.contesti.entidades.Assunto;
+import br.com.contesti.entidades.Banca;
 import br.com.contesti.entidades.Disciplina;
 import br.com.contesti.entidades.Questao;
 import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.AssuntoRepository;
+import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
 import br.com.contesti.repository.QuestaoRepository;
 
@@ -32,6 +34,9 @@ public class QuestaoController {
 	
 	@Autowired
 	private AssuntoRepository assuntoRepository;
+	
+	@Autowired
+	private BancaRepository bancaRepository;
 
 	// testes
 	// @RequestMapping(value= "/bancaT", method=RequestMethod.POST)
@@ -51,8 +56,7 @@ public class QuestaoController {
 			@RequestParam String desc5, @RequestParam Disciplina disciplina,@RequestParam Assunto assunto, Questao questao, Model model) {
 
 		questao.setPergunta(pergunta);
-		
-			
+				
 		if (isCorreta.equals("A")) {
 			correta1 = true;
 		} else {
@@ -77,12 +81,56 @@ public class QuestaoController {
 			correta5 = true;
 		} else {
 			correta5 = false;
-		}
-		
+		}		
 		questaoRepository.save(questao);
 		
-		
+		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
+		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
+		alternativaRepository.save(new Alternativa(desc3, correta3, questao));
+		alternativaRepository.save(new Alternativa(desc4, correta4, questao));
+		alternativaRepository.save(new Alternativa(desc5, correta5, questao));
 
+		return "Sucesso!!!";
+
+	}
+	@RequestMapping(value = "/criarQuestaoConcurso", method = RequestMethod.POST)
+	@ResponseBody
+	public String createConcurso(@RequestParam String pergunta, @RequestParam String isCorreta, Boolean correta1,
+			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
+			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
+			@RequestParam String desc5, 
+			@RequestParam Disciplina disciplina,@RequestParam Assunto assunto, @RequestParam Banca banca,
+			Questao questao,Model model) {
+
+		questao.setPergunta(pergunta);
+				
+		if (isCorreta.equals("A")) {
+			correta1 = true;
+		} else {
+			correta1 = false;
+		}
+		if(isCorreta.equals("B")) {
+			correta2 = true;
+		} else {
+			correta2 = false;
+		}
+		if (isCorreta.equals("C")) {
+			correta3 = true;
+		} else {
+			correta3 = false;
+		}
+		if (isCorreta.equals("D")) {
+			correta4 = true;
+		} else {
+			correta4 = false;
+		}
+		if (isCorreta.equals("E")) {
+			correta5 = true;
+		} else {
+			correta5 = false;
+		}		
+		questaoRepository.save(questao);
+		
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
 		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
 		alternativaRepository.save(new Alternativa(desc3, correta3, questao));
