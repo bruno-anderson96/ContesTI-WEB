@@ -78,9 +78,9 @@ public class QuestaoController {
 		} else {
 			correta5 = false;
 		}
-
+		
 		questaoRepository.save(questao);
-
+		
 		
 
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));

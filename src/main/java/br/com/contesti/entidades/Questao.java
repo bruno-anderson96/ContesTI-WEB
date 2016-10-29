@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Questao implements Serializable {
@@ -21,12 +22,11 @@ public class Questao implements Serializable {
 		this.ano = ano;
 	}
 	
+	
+	
 
 
-	public Questao() {
-		// TODO Auto-generated constructor stub
-	}
-
+	
 
 
 
@@ -45,6 +45,9 @@ public class Questao implements Serializable {
 	
 	@Column(nullable=true, length=11)
 	private int ano;	
+	
+	@ManyToOne
+	private Assunto assunto;
 	
 	public Integer getIdQuestao() {
 		return idQuestao;

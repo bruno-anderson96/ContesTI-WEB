@@ -53,68 +53,24 @@
         <div class="row">
           <div class="col-md-10">
             <form name="formulario" method="post" action="cadastroBC">
-              <label>Disciplina:</label>
-              <select id="lista1">
-                <option value="1"></option>
-                <option value="BD">Banco de Dados</option>
-                <option value="DS">Desenvolvimento de Sistemas</option>
-                <option value="ES">Engenharia de Software</option>
-                <option value="G-TI">Governança TI</option>
-                <option value="RD">Redes</option>
-                <option value="SI">Segurança da Informação</option>
-              </select>
-              <label>Assunto:</label>
-              <select id="lista1">
-                <option value="2"></option>
-                <option value="CV">Ciclo de Vida</option>
-                <option value="D-UML">Diagrama da UML</option>
-                <option value="SC">Scrum</option>
-                <option value="FDD">FDD - Feature Driven Design Manifesto Agil</option>
-                <option value="TDD">TDD - Teste Driven Develapment</option>
-                <option value="SB">SweBook</option>
-                <option value="MC">Modelo Cascata</option>
-                <option value="MS">Metricas de Software</option>
-                <option value="TCP">TCP/IP</option>
-                <option value="TLG">Topologia de Rede</option>
-                <option value="MS">Modelo OSI</option>
-                <option value="MT">Meios de Transmissão</option>
-                <option value="MR">Meios de Redes</option>
-                <option value="DHCP">DHCP</option>
-                <option value="DNS">DNS</option>
-                <option value="FW">Firewall</option>
-                <option value="PMBOOK">PMBOOK</option>
-                <option value="IT/L">IT/L</option>
-                <option value="MS">COBIT</option>
-                <option value="AG">Algoritmos</option>
-                <option value="C">C</option>
-                <option value="C++">C++</option>
-                <option value="CSS">CSS</option>
-                <option value="HTML">HTML</option>
-                <option value="JAVA">JAVA</option>
-                <option value="PHP">PHP</option>
-                <option value="OB">Orientação a Objeto</option>
-                <option value="SGBD">SGBD - SISI Gerenciamneto de Banco de Dados</option>
-                <option value="Mysql">Mysql</option>
-                <option value="Sql">Sql</option>
-                <option value="MR">Modelagem Relacional</option>
-                <option value="BD">Banco de Dados</option>
-                <option value="BD">Banco de dado a Objeto</option>
-                <option value="BD">Arquitetura de Banco de Dados</option>
-                <option value="CB">Conceito Basico</option>
-                <option value="AD">Assinatura Digital</option>
-                <option value="CIDA">CIDA - Confiabilidade, Integridade, Discponibilidade</option>
-                <option value="CG">Criptografia</option>
-                <option value="MW">Malware</option>
-                <option value="PX">Proxy</option>
-              </select>
+              <label>Disciplina:</label> <select id="idDisciplina">
+							<option value=""></option>
+							<option th:value="${listarDisciplina.id}"
+								th:each="listarDisciplina : ${listarDisciplina}"
+								th:text="${listarDisciplina.descricao}"></option>
+						</select> <label>Assunto:</label> <select id="idDisciplina">
+							<option value=""></option>
+							<option th:value="${listarAssunto.id}"
+								th:each="listarAssunto : ${listarAssunto}"
+								th:text="${listarAssunto.descricao}"></option>
+						</select>
               <label>Banca:</label>
-              <select id="lista3">
-                <option value="2"></option>
-                <option value="CESPE">CESPE</option>
-                <option value="FCC">FCC</option>
-                <option value="CESGRANRIO">CESGRANRIO</option>
-                <option value="ESAF">ESAF</option>
-              </select>
+              <select id="idDisciplina">
+							<option value=""></option>
+							<option th:value="${listarBanca.id}"
+								th:each="listarBanca : ${listarBanca}"
+								th:text="${listarBanca.descricao}"></option>
+						</select>
               <div class="form-group has-feedback">
               <br/>
         <label class="col-xs-9 text-while control-label">Questão</label>

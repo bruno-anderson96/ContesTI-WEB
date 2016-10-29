@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.contesti.repository.AssuntoRepository;
+import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
 import br.com.contesti.repository.UsuarioRepository;
 
@@ -21,6 +22,9 @@ public class HomeController {
 	
 	@Autowired
 	private AssuntoRepository assuntoRepository;
+	
+	@Autowired
+	private BancaRepository bancaRepository;
 	
 	@RequestMapping("/testeT")
 	public String testeT(){
@@ -45,6 +49,15 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("CadastroQuestaoUser");
 		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
 		mav.addObject("listarAssunto", assuntoRepository.findAll());	
+		return mav;
+	}
+	
+	@RequestMapping("/cadastroQuestaoConcurso")
+	public ModelAndView cadastroQuestaoConcurso(){
+		ModelAndView mav = new ModelAndView("CadastroQuestaoConcurso");
+		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
+		mav.addObject("listarAssunto", assuntoRepository.findAll());
+		mav.addObject("listarBanca", bancaRepository.findAll());
 		return mav;
 	}
 	
