@@ -26,10 +26,20 @@ public class Questao implements Serializable {
 		this.banca = banca;
 	}
 	
-	public Questao(Questao questao, Assunto assunto){
+	public Questao(String pergunta, Assunto assunto){
+		this.pergunta = pergunta;
 		this.assunto = assunto;
 	}
 	
+	
+	
+	public Questao() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	@Id
 	@GeneratedValue
 	private Integer idQuestao;

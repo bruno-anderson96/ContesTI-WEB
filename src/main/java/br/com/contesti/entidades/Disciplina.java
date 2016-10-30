@@ -25,15 +25,15 @@ public class Disciplina implements Serializable {
 	}
 	@Id
 	@GeneratedValue
-	private Integer idDisciplina;
+	private Long idDisciplina;
 	@Column(nullable=true, length=150)
 	private String descricao;
 
-	public Integer getId() {
+	public Long getId() {
 		return idDisciplina;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.idDisciplina = id;
 	}
 

@@ -28,7 +28,7 @@ public class Assunto implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer idAssunto;
+	private Long idAssunto;
 	
 	@Column(nullable=true, length=150)
 	private String descricao;
@@ -39,10 +39,10 @@ public class Assunto implements Serializable {
 	
 	
 	
-	public Integer getId() {
+	public Long getId() {
 		return idAssunto;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.idAssunto = id;
 	}
 	public String getDescricao() {
