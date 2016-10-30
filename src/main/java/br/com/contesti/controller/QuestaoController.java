@@ -140,8 +140,13 @@ public class QuestaoController {
 
 		questao.setPergunta(pergunta);
 		
+		banca = bancaRepository.findOne(banca.getId());
+	    disciplina = disciplinaRepository.findOne(disciplina.getId());
+	    assunto = assuntoRepository.findOne(assunto.getId());    
+	    
 		
-		questaoRepository.save(new Questao(questao,assunto,banca));
+		
+	    questao = questaoRepository.save(new Questao(questao.getPergunta(), assunto, banca));
 		
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
 		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
