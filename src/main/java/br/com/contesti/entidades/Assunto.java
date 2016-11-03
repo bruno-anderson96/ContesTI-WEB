@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Assunto implements Serializable {
@@ -30,6 +31,7 @@ public class Assunto implements Serializable {
 	@GeneratedValue
 	private Long idAssunto;
 	
+	@NotNull(message="Preencha o campo assunto")
 	@Column(nullable=true, length=150)
 	private String descricao;
 	

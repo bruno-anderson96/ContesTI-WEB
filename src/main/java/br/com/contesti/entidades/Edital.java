@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Edital implements Serializable {
@@ -26,6 +27,7 @@ public class Edital implements Serializable {
 	@GeneratedValue
 	private Integer idEdital;
 	
+	@NotNull(message="Preencha o campo edital")
 	@Column(nullable=true, length=45)
 	private String nome;
 	

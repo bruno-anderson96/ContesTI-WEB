@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="usuario")
@@ -26,15 +28,22 @@ public class Usuario implements Serializable {
 
 	private Long idUsuario;
 	
+	@NotNull(message="Campo nome vazio")
+	@Size(min=2,message="Digite no mínimo 2 caracteres")
 	@Column(nullable=true, length=30)
 	private String nome_usuario;
 	
+	@NotNull(message="Campo usuário vazio")
+	@Size(min=5,message="Digite no mínimo 5 caracteres")
 	@Column(nullable=true, length=20)
 	private String login;
 	
+	@NotNull(message="Campo senha vazio")
+	@Size(min=8,message="Digite no mínimo 8 caracteres")
 	@Column(nullable=true, length=800)
 	private String senha;
 	
+	@NotNull(message="Campo email vazio")
 	@Column(nullable=true, length=45)
 	private String email;
 	

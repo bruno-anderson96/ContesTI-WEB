@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Alternativa implements Serializable{
@@ -32,9 +33,11 @@ public class Alternativa implements Serializable{
 	@GeneratedValue
 	private Integer idAlternativa;
 	
+	@NotNull(message="Preencha todas as alternativas")
 	@Column(nullable=true, length=100)
 	private String descricao;
 	
+	@NotNull(message="Preencha a alternativa correta")
 	@Column(nullable=true, length=1)
 	private boolean correta;
 	
