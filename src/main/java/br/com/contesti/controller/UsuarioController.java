@@ -1,8 +1,8 @@
 package br.com.contesti.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -36,21 +36,32 @@ public class UsuarioController {
     					 Model model, RedirectAttributes attributes,
     					 @Valid Usuario usuario, BindingResult result) throws NoSuchAlgorithmException, UnsupportedEncodingException{	
 		
-    		if(senha.equals(confirmar_senha)){    	
-    			senha = usuario.criptografar(senha);
-    			
-    			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
-    			ModelAndView mv = new ModelAndView("redirect:/cadastro");
-    			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");
-    			
-    			   	       	
+			List<Usuario> u = usuarioRepository.findByLogin(login);
+			
+			if(u.size() != 0){
+				
+				ModelAndView mv = new ModelAndView("redirect:/cadastro");
+    			attributes.addFlashAttribute("mensagem", "Usuário já existe");
+    			    			    			   	       	
     	    	return mv;
-    		}else{
-    			ModelAndView mv = new ModelAndView("redirect:/cadastro");
-    			attributes.addFlashAttribute("mensagem", "Erro");
-    			return mv;
-    		}
+				    	    	
+			}else{
+				if(senha.equals(confirmar_senha)){    	
+        			senha = usuario.criptografar(senha);
+        			
+        			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
+        			ModelAndView mv = new ModelAndView("redirect:/cadastro");
+        			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");
+        			    			   	       	
+        	    	return mv;
+        		}else{
+        			ModelAndView mv = new ModelAndView("redirect:/cadastro");
+        			attributes.addFlashAttribute("mensagem", "Erro");
+        			return mv;
+        		}
+    		
     }
+	}
 	
 
 }
