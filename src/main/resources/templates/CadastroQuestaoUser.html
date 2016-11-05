@@ -58,7 +58,7 @@ select {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10">
-					<form name="formulario" method="post" th:action="@{cadastroQuestao/criarQuestaoUsuario}">
+					<form th:object="${Questao}" name="formulario" method="post" th:action="@{cadastroQuestao/criarQuestaoUsuario}">
 						<label>Disciplina:</label> <select name="disciplina" id="idDisciplina">
 							<option value=""></option>
 							<option th:value="${listarDisciplina.id}"

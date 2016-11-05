@@ -1,8 +1,11 @@
 package br.com.contesti.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,7 +57,7 @@ public class QuestaoController {
 			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
 			@RequestParam String desc5, @RequestParam Disciplina disciplina ,@RequestParam Assunto assunto,
-			Questao questao, Model model) {
+			@Valid Questao questao, Model model,BindingResult result) {
 
 				
 		if (isCorreta.equals("A")) {
@@ -88,8 +91,8 @@ public class QuestaoController {
 	    disciplina = disciplinaRepository.findOne(disciplina.getId());
 	    assunto = assuntoRepository.findOne(assunto.getId());    
 	    
-	    questao = questaoRepository.save(new Questao(questao.getPergunta(), assunto));
-
+	    
+	    questaoRepository.save(questao);
 
 		
 		alternativaRepository.save(new Alternativa(desc1, correta1, questao));

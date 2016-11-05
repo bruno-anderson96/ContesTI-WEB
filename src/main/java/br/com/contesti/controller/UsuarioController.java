@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.contesti.entidades.Usuario;
 import br.com.contesti.repository.UsuarioRepository;
@@ -27,26 +29,26 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/criarUsuario", method=RequestMethod.POST)
     @ResponseBody  
-    public String create(@RequestParam String nome_usuario,@RequestParam String login,
+    public ModelAndView create(@RequestParam String nome_usuario,@RequestParam String login,
     					 @RequestParam String senha,@RequestParam String email,
-    					 Boolean ativo,
     					 @RequestParam String confirmar_senha,
-    					 Model model,
+    					 Boolean ativo,
+    					 Model model, RedirectAttributes attributes,
     					 @Valid Usuario usuario, BindingResult result) throws NoSuchAlgorithmException, UnsupportedEncodingException{	
 		
     		if(senha.equals(confirmar_senha)){    	
-    			ativo = true;
-    			MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
-    			byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
-    			StringBuilder hexString = new StringBuilder();
-    			for(byte b: messageDigest){
-    				hexString.append(String.format("%02X",  0xFF & b));
-    			}
-    			senha = hexString.toString();
-    			usuarioRepository.save(usuario);    	       	
-    	    	return "Sucesso!!!";
+    			senha = usuario.criptografar(senha);
+    			
+    			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
+    			ModelAndView mv = new ModelAndView("redirect:/cadastro");
+    			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");
+    			
+    			   	       	
+    	    	return mv;
     		}else{
-    			return "Senha diferente";
+    			ModelAndView mv = new ModelAndView("redirect:/cadastro");
+    			attributes.addFlashAttribute("mensagem", "Erro");
+    			return mv;
     		}
     }
 	

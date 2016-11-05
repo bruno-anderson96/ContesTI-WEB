@@ -28,8 +28,8 @@ public class Questao implements Serializable {
 		this.banca = banca;
 	}
 	
-	public Questao(String pergunta, Assunto assunto){
-		this.pergunta = pergunta;
+	public Questao(Questao questao, Assunto assunto){
+	
 		this.assunto = assunto;
 	}
 	
