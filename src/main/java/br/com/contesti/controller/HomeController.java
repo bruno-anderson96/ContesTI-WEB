@@ -57,11 +57,7 @@ public class HomeController {
 		return mav;
 	}
 	
-	@RequestMapping("/cadastroQuestaoBC")
-	public String cadastroQuestaoBC(){
-		return "/CadastroQuestaoBC";
-	}
-	
+		
 	@RequestMapping("/cadastro")
 	public String cadastro(){
 		System.out.println("Hello usuario");

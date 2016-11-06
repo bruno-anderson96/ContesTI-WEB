@@ -12,6 +12,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+
+import br.com.contesti.entidades.Role;
 
 
 @Configuration
@@ -19,24 +22,49 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(securedEnabled=true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	UserDetailsService userDetailsService;
 
+	@Bean(name="userDetailService")
+	public UserDetailsService userDetailsService(DataSource dataSource){
+		JdbcDaoImpl jdbcImpl = new JdbcDaoImpl();
+		jdbcImpl.setDataSource(dataSource);
+		jdbcImpl.setUsersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?");
+		jdbcImpl.setAuthoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?");
+		return jdbcImpl;
+	}
+	
+	
+	@Bean(name="passwordEncoder")
+	public Md5PasswordEncoder passwordencoder() throws Exception {
+	  return new Md5PasswordEncoder();
+	}
+	
+	
 	
 	@Autowired
-	public void globalConfig(AuthenticationManagerBuilder auth,DataSource dataSource) throws Exception{
+	public void globalConfig(AuthenticationManagerBuilder auth) throws Exception{
 		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
-//		auth.inMemoryAuthentication().withUser("prof1").password("123").roles("PROF");
-//		auth.inMemoryAuthentication().withUser("est1").password("123").roles("ESTUDANTE");
-
-		auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?")
-		.authoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?")
-		.passwordEncoder(new Md5PasswordEncoder()).rolePrefix("ROLE_");
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
 		
 	}
+	
+//	@Autowired
+//	public void globalConfig(AuthenticationManagerBuilder auth,DataSource dataSource) throws Exception{
+//		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+//		auth.inMemoryAuthentication().withUser("prof1").password("123").roles("PROF");
+//		auth.inMemoryAuthentication().withUser("est1").password("123").roles("ESTUDANTE");
+//
+//		auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?")
+//		.passwordEncoder(new Md5PasswordEncoder()).authoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?")
+//		.rolePrefix("ROLE_");
+//		
+//	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
    http.csrf().disable().authorizeRequests() 
-	 		.antMatchers("/cadastroQuestao").hasRole("ADMIN")
+	 		.antMatchers("/cadastroQuestao").hasAuthority("ADMIN")
 	        .antMatchers("/cadastro").permitAll()
 	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/cadastroQuestao")
 	        .usernameParameter("login").passwordParameter("senha")

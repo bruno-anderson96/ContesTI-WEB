@@ -7,9 +7,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.DigestUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +30,7 @@ public class UsuarioController {
 	@Autowired
     private UsuarioRepository usuarioRepository;
 	
-	
+	Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 
 	@RequestMapping(value = "/criarUsuario", method=RequestMethod.POST)
     @ResponseBody  
@@ -37,7 +39,7 @@ public class UsuarioController {
     					 @RequestParam String confirmar_senha,
     					 Boolean ativo,
     					 Model model, RedirectAttributes attributes,
-    					 @Valid Usuario usuario, BindingResult result) throws NoSuchAlgorithmException, UnsupportedEncodingException{	
+    					 @Valid Usuario usuario, BindingResult result) throws Exception{	
 		
 			List<Usuario> u = usuarioRepository.findByLogin(login);
 			
@@ -51,7 +53,11 @@ public class UsuarioController {
 			}else{
 				if(senha.equals(confirmar_senha)){ 
 					if(usuario.isEmailValid(email)){
-					senha = usuario.criptografar(senha);
+						
+					senha = encoder.encodePassword(senha, null);
+					//senha = usuario.criptografar(senha);
+//					System.out.println(encoder.encodePassword(senha, null));
+//					System.out.println(usuario.criptografar(senha));
         		
         			
         			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
