@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Questao implements Serializable {
@@ -17,36 +18,11 @@ public class Questao implements Serializable {
 	 */
 	private static final long serialVersionUID = -1122050260113866970L;
 	
-	public Questao(String pergunta, String comentario, int ano){
-		this.pergunta =pergunta;
-		this.comentario = comentario;
-		this.ano = ano;
-	}
-	public Questao(String pergunta, Assunto assunto, Banca banca){
-		this.pergunta = pergunta;
-		this.assunto = assunto;
-		this.banca = banca;
-	}
-	
-	public Questao(Questao questao, Assunto assunto){
-	
-		this.assunto = assunto;
-	}
-	
-	
-	
-	public Questao() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
 	@Id
 	@GeneratedValue
 	private Integer idQuestao;
 	
-	@NotNull(message="Preencha a pergunta")
+	@Size(min=1,message="Preencha o campo pergunta")
 	@Column(nullable=true)
 	private String pergunta;
 	
@@ -63,6 +39,30 @@ public class Questao implements Serializable {
 	
 	@ManyToOne
 	private Banca banca;
+	
+	public Questao(String pergunta, String comentario, int ano){
+		this.pergunta =pergunta;
+		this.comentario = comentario;
+		this.ano = ano;
+	}
+	public Questao(String pergunta, Assunto assunto, Banca banca){
+		this.pergunta = pergunta;
+		this.assunto = assunto;
+		this.banca = banca;
+	}
+	
+	public Questao(String pergunta,Questao questao, Assunto assunto){
+		this.pergunta = pergunta;
+		this.assunto = assunto;
+	}
+	
+	
+	
+	public Questao() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	public Integer getIdQuestao() {
 		return idQuestao;

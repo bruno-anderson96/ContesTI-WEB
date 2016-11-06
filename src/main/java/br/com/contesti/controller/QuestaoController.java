@@ -91,15 +91,21 @@ public class QuestaoController {
 	    disciplina = disciplinaRepository.findOne(disciplina.getId());
 	    assunto = assuntoRepository.findOne(assunto.getId());    
 	    
-	    
-	    questaoRepository.save(questao);
 
 		
-		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
-		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
-		alternativaRepository.save(new Alternativa(desc3, correta3, questao));
-		alternativaRepository.save(new Alternativa(desc4, correta4, questao));
-		alternativaRepository.save(new Alternativa(desc5, correta5, questao));
+	    questao = new Questao(pergunta,questao,assunto);
+	    questaoRepository.save(questao);
+
+		Alternativa a1 = new Alternativa(desc1, correta1, questao);
+		Alternativa a2 = new Alternativa(desc2, correta2, questao);
+		Alternativa a3 = new Alternativa(desc3, correta3, questao);
+		Alternativa a4 = new Alternativa(desc4, correta4, questao);
+		Alternativa a5 = new Alternativa(desc5, correta5, questao);
+		alternativaRepository.save(a1);
+		alternativaRepository.save(a2);
+		alternativaRepository.save(a3);
+		alternativaRepository.save(a4);
+		alternativaRepository.save(a5);
 
 		return "Sucesso!!!";
 
