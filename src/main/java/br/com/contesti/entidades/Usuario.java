@@ -49,7 +49,7 @@ public class Usuario implements Serializable {
 	private String senha;
 	
 	public String criptografar(String senha) throws NoSuchAlgorithmException, UnsupportedEncodingException{
-		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+		MessageDigest algorithm = MessageDigest.getInstance("MD5");
 		byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
 		StringBuilder hexString = new StringBuilder();
 		for(byte b: messageDigest){

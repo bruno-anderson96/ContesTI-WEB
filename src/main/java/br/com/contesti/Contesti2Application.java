@@ -1,9 +1,10 @@
 package br.com.contesti;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
@@ -33,6 +34,13 @@ public class Contesti2Application {
 	    viewResolver.setTemplateEngine(engine);
 	    return viewResolver;
 	  }
+	
+	
+	@Bean
+	public Md5PasswordEncoder passwordEncoder() throws Exception {
+	  return new Md5PasswordEncoder();
+	}
+	
 	
 	
 

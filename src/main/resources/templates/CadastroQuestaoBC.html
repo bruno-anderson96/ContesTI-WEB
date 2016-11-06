@@ -56,18 +56,18 @@
               <label>Disciplina:</label> <select name="disciplina" id="idDisciplina">
 							<option value=""></option>
 							<option th:value="${listarDisciplina}"
-								th:each="listarDisciplina : ${listarDisciplina}"
+								th:each="listarDisciplina : ${listarDisciplina.id}"
 								th:text="${listarDisciplina.descricao}"></option>
 						</select> <label>Assunto:</label> <select name="assunto" >
 							<option value=""></option>
-							<option th:value="${listarAssunto}"
+							<option th:value="${listarAssunto.id}"
 								th:each="listarAssunto : ${listarAssunto}"
 								th:text="${listarAssunto.descricao}"></option>
 						</select>
               <label>Banca:</label>
               <select name="banca">
 							<option value=""></option>
-							<option th:value="${listarBanca}"
+							<option th:value="${listarBanca.id}"
 								th:each="listarBanca : ${listarBanca}"
 								th:text="${listarBanca.descricao}"></option>
 						</select>

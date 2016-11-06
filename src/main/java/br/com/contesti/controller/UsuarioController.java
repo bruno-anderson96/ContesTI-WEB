@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +27,8 @@ public class UsuarioController {
 
 	@Autowired
     private UsuarioRepository usuarioRepository;
+	
+	
 
 	@RequestMapping(value = "/criarUsuario", method=RequestMethod.POST)
     @ResponseBody  
@@ -48,8 +51,8 @@ public class UsuarioController {
 			}else{
 				if(senha.equals(confirmar_senha)){ 
 					if(usuario.isEmailValid(email)){
-					
-        			senha = usuario.criptografar(senha);
+					senha = usuario.criptografar(senha);
+        		
         			
         			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
         			ModelAndView mv = new ModelAndView("redirect:/cadastro");
