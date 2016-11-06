@@ -117,7 +117,7 @@ public class QuestaoController {
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
 			@RequestParam String desc5, 
 			@RequestParam Disciplina disciplina,@RequestParam Assunto assunto, @RequestParam Banca banca,
-			Questao questao,Model model) {
+			@Valid Questao questao,Model model, BindingResult result) {
 
 		
 		
@@ -147,7 +147,7 @@ public class QuestaoController {
 			correta5 = false;
 		}		
 
-		questao.setPergunta(pergunta);
+		
 		
 		banca = bancaRepository.findOne(banca.getId());
 	    disciplina = disciplinaRepository.findOne(disciplina.getId());
@@ -155,13 +155,19 @@ public class QuestaoController {
 	    
 		
 		
-	    questao = questaoRepository.save(new Questao(questao.getPergunta(), assunto, banca));
-		
-		alternativaRepository.save(new Alternativa(desc1, correta1, questao));
-		alternativaRepository.save(new Alternativa(desc2, correta2, questao));
-		alternativaRepository.save(new Alternativa(desc3, correta3, questao));
-		alternativaRepository.save(new Alternativa(desc4, correta4, questao));
-		alternativaRepository.save(new Alternativa(desc5, correta5, questao));
+	    questao = new Questao(pergunta,questao,assunto,banca);
+	    questaoRepository.save(questao);
+
+		Alternativa a1 = new Alternativa(desc1, correta1, questao);
+		Alternativa a2 = new Alternativa(desc2, correta2, questao);
+		Alternativa a3 = new Alternativa(desc3, correta3, questao);
+		Alternativa a4 = new Alternativa(desc4, correta4, questao);
+		Alternativa a5 = new Alternativa(desc5, correta5, questao);
+		alternativaRepository.save(a1);
+		alternativaRepository.save(a2);
+		alternativaRepository.save(a3);
+		alternativaRepository.save(a4);
+		alternativaRepository.save(a5);
 
 		return "Sucesso!!!";
 

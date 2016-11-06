@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Banca implements Serializable {
@@ -28,7 +28,7 @@ public class Banca implements Serializable {
 	@GeneratedValue
 	private Long idBanca;
 	@Column(nullable=true, length=100)
-	@NotNull(message="Preencha o campo banca")
+	@Size(min=1,message="Preencha o campo banca")
 	private String descricao;
 	public Long getId() {
 		return idBanca;
