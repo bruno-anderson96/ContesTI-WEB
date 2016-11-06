@@ -46,7 +46,9 @@ public class UsuarioController {
     	    	return mv;
 				    	    	
 			}else{
-				if(senha.equals(confirmar_senha)){    	
+				if(senha.equals(confirmar_senha)){ 
+					if(usuario.isEmailValid(email)){
+					
         			senha = usuario.criptografar(senha);
         			
         			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
@@ -54,6 +56,11 @@ public class UsuarioController {
         			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");
         			    			   	       	
         	    	return mv;
+					}else{
+						ModelAndView mv = new ModelAndView("redirect:/cadastro");
+	        			attributes.addFlashAttribute("mensagem", "Email inválido");
+	        			return mv;
+					}
         		}else{
         			ModelAndView mv = new ModelAndView("redirect:/cadastro");
         			attributes.addFlashAttribute("mensagem", "Erro");
