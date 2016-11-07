@@ -4,67 +4,95 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-<title>Sobre Equipe</title>
+<title>Sobre</title>
+<link rel="shortcut icon" href="sobre/imagens/favicon.ico"/>
 
 <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" th:href="@{/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
 <link href="sobre/css/estilo.css" th:href="@{sobre/css/estilo.css}" rel="stylesheet" type="text/css"/>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"	th:href="@{/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css}" rel="stylesheet" type="text/css"/>
-<link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" th:href="@{/pingendo-bootstrap/themes/default/bootstrap.css}" rel="stylesheet" type="text/css"/>
+
 
 </head>
 <body>
-	<div class="cover">
-		<div class="navbar">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						 <span class="icon-bar"></span>
-						  <span class="icon-bar"></span> 
-						  <span	class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Inicio	
-					<br/>
-					<br/>
-				</a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar-ex-collapse">
-					<ul class="nav navbar-nav navbar-right"></ul>
-				</div>
-			</div>
-		</div>
-		<div class="cover-image"
-			style="background-image: url(http://estudoacelerado.com.br/wp-content/uploads/2016/03/Como-se-Concentrar-nos-Estudos-em-7-Passos.png)"></div>
-	</div>
+
+ <!--  <div class="section section-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <a class="btn btn-primary">Inicio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+-->
 	<div class="section section-primary">
-		<div class="container">
-			<div class="row">
+	<p class="text-center">O contesTI foi criado com o objetivo de  auxiliar os estudantes de concursos da<br/>
+	área de tecnologia da informação e mostrar o quanto a tecnologia pode ser útil a estudantes<br/>
+	para que os mesmos possam desenvolver suas atividades de estudo no dia-a-dia através de<br/>
+	um único aplicativo.</p> 
+	<br/>
+	<br/>
+	<p class="text-center">A equipe mobile applications é composta por seis integrantes,são eles:</p>
+	
+	
+	
+	
+	
+		    <div class="container">
+			   <div class="row">
+			   <div class="row">
+                   <div class="col-md-12">
+                   <h1 class="text-center">Equipe</h1>
+                   <br/>
+                   </div>
+                 </div>
+				 <div class="row">
 				<div class="col-md-2">
-					<img src="sobre/imagem/logo-2.png" th:src="@{sobre/imagem/logo-2.png}"  class="img-circle img-responsive"/>
+                      <img src="sobre\imagem\bruno.jpg" class="center-block img-circle img-responsive"/>
+                      <h3 class="text-center">Bruno Anderson</h3>
+                      <p class="text-center">Devenvolvedor Chefe</p>
+                </div>
+				 
+			    <div class="col-md-2">
+			          <img src="sobre\imagem\anderson.jpg" class="center-block img-circle img-responsive"/>
+                      <h3 class="text-center">Cicero Anderson</h3>
+                      <p class="text-center">Desenvolvedor</p>
+			    
+                    
+                </div>
+                
+                <div class="col-md-2">
+                      <img src="sobre\imagem\laércio.png" class="center-block img-circle img-responsive"/>
+                      <h3 class="text-center">Francisco Laércio</h3>
+                      <p class="text-center">Gerente de Projeto</p>
+                </div>
+				
+				<div class="col-md-2">
+					 <img src="sobre\imagem\lucas.jpg" class="center-block img-circle img-responsive"/>
+                     <h3 class="text-center">José Lucas</h3>
+                     <p class="text-center">Testador</p>
 				</div>
-				<div class="col-md-6">
-					<h1>ContesTI</h1>
-					<h3>A subtitle</h3>
-					<p>"Texto"</p>
-				</div>
+				
+				<div class="col-md-2">
+                    <img src="sobre\imagem\thayla.jpg" class="center-block img-circle img-responsive"/>
+                    <h3 class="text-center">Thayla Firmo</h3>
+                    <p class="text-center">Analista de Sistemas</p>
+                </div>
+                
+                <div class="col-md-2">
+                    <img src="sobre\imagem\tiago.jpg" class="center-block img-circle img-responsive"/>
+                    <h3 class="text-center">Tiago Silva</h3>
+                    <p class="text-center">Designer</p>
+                </div>
+			   </div>
 			</div>
 		</div>
+		<br/>
+		<br/>
+		<center> © - Desenvolvimento - ContesTI.</center>
 	</div>
-	<div class="section section-info">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<img src="sobre/imagem/Logo Marca.png" th:src="@{sobre/imagem/Logo Marca.png}" class="img-circle img-responsive"/>
-				</div>
-				<div class="col-md-4">
-					<h1>MobilleAplication</h1>
-					<h3>A subtitle</h3>
-					<p>"Texto"</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
-
+   
 </body>
 </html>

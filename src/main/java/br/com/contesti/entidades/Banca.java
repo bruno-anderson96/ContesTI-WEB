@@ -28,6 +28,7 @@ public class Banca implements Serializable {
 	@GeneratedValue
 	private Long idBanca;
 	@Column(nullable=true, length=100)
+	
 	@Size(min=1,message="Preencha o campo banca")
 	private String descricao;
 	public Long getId() {

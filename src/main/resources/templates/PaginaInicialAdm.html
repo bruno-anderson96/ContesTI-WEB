@@ -43,7 +43,8 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a th:href="@{/cadastroQuestao}">Cadastre sua Questão</a></li>
+						<li><a th:href="@{/cadastroQuestao}">Cadastrar Questão de usuário</a></li>
+							<li><a th:href="@{/cadastroQuestaoConcurso}">Cadastrar Questão de Banca</a></li>
 						<li><a th:href="@{/Sobre}">Sobre</a></li>
 				   </ul>
 					 
@@ -73,7 +74,7 @@
       
       <div class="row">
       <div class="col-lg-1"></div>
-<form name="formulario" method="post" action="">
+
  <div class="col-sm-1"></div>
 	 <h1 class="text-primary">Opções</h1>
 	
@@ -86,16 +87,23 @@
       <div class="col-lg-3"></div>
       	
 		
-		<label> 
-		
+		 <form th:object="${banca}" method="post" th:action="@{banca/criarBanca}">
+		 	<div class="alert alert-success" th:text="${mensagem}"
+						th:if="${not #strings.isEmpty(mensagem)}"></div>
+							
+			<div class="alert alert-danger" th:text="${erro}"
+						th:if="${not #strings.isEmpty(erro)}"></div>
+		<label> 		
 	       <span class="text-primary">Banca:</span>
- 			<input type="text" class="form-control" name="Banca" placeholder="Banca"/>
+ 			<input type="text" class="form-control" name="descricao" placeholder="Banca"/>
  	    </label>
+
  	    
  	    <label>
-			<button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		</label>  
-       
+        </form>
+        	   
         <label>
  			<span class="text-primary">Disciplina:</span>
 			<input type="text" class="form-control" name="Disciplina" placeholder="Disciplina"/>
@@ -122,8 +130,7 @@
 	
 	<br/>
    
-	
-</form>
+
 
 
 

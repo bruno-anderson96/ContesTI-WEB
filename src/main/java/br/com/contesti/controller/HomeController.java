@@ -28,26 +28,25 @@ public class HomeController {
 	
 	@RequestMapping("/testeT")
 	public String testeT(){
-		System.out.println("Hello Thymeleaf!!");
 		return "testeThyme";
 	}
 	
 		
 	@RequestMapping("/")
 	public String login(){	
-		System.out.println("Hello Login!!");		
+	
 		return "Login";
 	
 	}
 	@RequestMapping("/home")
 	public String index(){	
-		System.out.println("Hello Login!!");		
+		
 		return "PaginaInicialUser";
 	
 	}
 	@RequestMapping("/homeAdm")
 	public String indexAdmin(){	
-		System.out.println("Hello Login!!");		
+		
 		return "PaginaInicialAdm";
 	
 	}
@@ -72,13 +71,13 @@ public class HomeController {
 		
 	@RequestMapping("/cadastro")
 	public String cadastro(){
-		System.out.println("Hello usuario");
+		
 		return "cadastro";
 	}
 	
-	@RequestMapping("/sobre")
+	@RequestMapping("/Sobre")
 	public String sobre(){
-		System.out.println("Hello usuario");
+	
 		return "Sobre";
 	}
 	
