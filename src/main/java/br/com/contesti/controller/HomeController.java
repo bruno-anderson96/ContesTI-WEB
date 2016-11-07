@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.contesti.repository.AssuntoRepository;
 import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
+import br.com.contesti.repository.RoleRepository;
 import br.com.contesti.repository.UsuarioRepository;
 
 @Controller
@@ -25,6 +26,9 @@ public class HomeController {
 	
 	@Autowired
 	private BancaRepository bancaRepository;
+	
+	@Autowired
+	private RoleRepository roleRepository;
 	
 	@RequestMapping("/testeT")
 	public String testeT(){
@@ -45,9 +49,12 @@ public class HomeController {
 	
 	}
 	@RequestMapping("/homeAdm")
-	public String indexAdmin(){	
-		
-		return "PaginaInicialAdm";
+	public ModelAndView indexAdmin(){	
+		ModelAndView mav = new ModelAndView("PaginaInicialAdm");
+		mav.addObject("listarUsuario", usuarioRepository.findAll());
+		mav.addObject("listarRole", roleRepository.findAll());
+		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
+		return mav;
 	
 	}
 	

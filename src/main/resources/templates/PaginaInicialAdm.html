@@ -86,13 +86,14 @@
 	  <br/>
       <div class="col-lg-3"></div>
       	
-		
+				<div>
 		 <form th:object="${banca}" method="post" th:action="@{banca/criarBanca}">
 		 	<div class="alert alert-success" th:text="${mensagem}"
 						th:if="${not #strings.isEmpty(mensagem)}"></div>
 							
 			<div class="alert alert-danger" th:text="${erro}"
 						th:if="${not #strings.isEmpty(erro)}"></div>
+
 		<label> 		
 	       <span class="text-primary">Banca:</span>
  			<input type="text" class="form-control" name="descricao" placeholder="Banca"/>
@@ -101,8 +102,11 @@
  	    
  	    <label>
 			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-		</label>  
+		</label>
+
         </form>
+       		 </div>  
+        		<div>
          <form th:object="${disciplina}" method="post" th:action="@{disciplina/criarDisciplina}">	   
         <label>
  			<span class="text-primary">Disciplina:</span>
@@ -113,7 +117,8 @@
 			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		</label>
 		</form>
-		
+		 </div>  
+		 <div>
 			<form th:object="${role}" method="post" th:action="@{role/criarRole}">
 		<label>
 	
@@ -126,7 +131,7 @@
             <button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
        </label>    
 	 </form>
-		    
+		   </div> 
 	</div>
 	
 	
@@ -136,31 +141,33 @@
 
 
 
-  <form>
+ <form method="post" th:action="@{cadastro/AdicionarPermissao}">	
   
   <div class="col-sm-2">
-	 <span class="text-primary">Assunto:</span>
+	 <span class="text-primary">Usuário:</span>
 		   
-		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
+		    		    <select name="usuario" id="idUsuario">
+							<option value=""></option>
+							<option th:value="${listarUsuario.idUsuario}"
+								th:each="listarUsuario : ${listarUsuario}"
+								th:text="${listarUsuario.nome_usuario}"></option>
+						</select>
 		    
-			   <option value="4"></option>
-			   <option value="4"> Usuário </option>							
-		    </select>
 		</div>
 		
   <div class="col-sm-2">
   
 		<span class="text-primary">Permissão:</span>
 		   
-		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
-		    
-			   <option value="0"></option>
-			   <option value="1"> Administrador </option>
-			   							
-		    </select>
+		     <select name="role" id="role">
+							<option value=""></option>
+							<option th:value="${listarRole.role}"
+								th:each="listarRole : ${listarRole}"
+								th:text="${listarRole.role}"></option>
+						</select>
 		    </div>
 		  <br/>  
-		 <div class="col-xs-0 col-sm-3"><button class="btn btn-primary " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		 <div class="col-xs-0 col-sm-3"><button class="btn btn-primary " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		    
 		   
  </div>
@@ -175,7 +182,7 @@
 		   
 		    <label>
  			
-			<input type="text" class="form-control" name="Assunto" placeholder="Assunto"/>
+			<input type="text" class="form-control" name="descricao" placeholder="Assunto"/>
 		</label>
 		
 		</div>
@@ -184,15 +191,15 @@
   
 		
 		   
-		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
-		    
-			   <option value="0">Disciplina</option>
-			   <option value="1"> Banco de Dados </option>
-			   							
-		    </select>
+		   <select name="disciplina" id="idDisciplina">
+							<option value=""></option>
+							<option th:value="${listarDisciplina.id}"
+								th:each="listarDisciplina : ${listarDisciplina}"
+								th:text="${listarDisciplina.descricao}"></option>
+						</select>
 		    </div>
 		    
-		 <div class="col-xs-0 col-sm-1"><button class="text-primary btn btn-primary " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		 <div class="col-xs-0 col-sm-1"><button class="text-primary btn btn-primary " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		    
 		   
  </div>

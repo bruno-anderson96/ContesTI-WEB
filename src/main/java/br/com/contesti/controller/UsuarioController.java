@@ -1,17 +1,13 @@
 package br.com.contesti.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.DigestUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.contesti.entidades.Disciplina;
+import br.com.contesti.entidades.Role;
 import br.com.contesti.entidades.Usuario;
+import br.com.contesti.repository.RoleRepository;
 import br.com.contesti.repository.UsuarioRepository;
 
 @Controller
@@ -30,8 +29,28 @@ public class UsuarioController {
 	@Autowired
     private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+    private RoleRepository roleRepository;
+	
 	Md5PasswordEncoder encoder = new Md5PasswordEncoder();
-
+	
+	
+	@RequestMapping(value = "/AdicionarPermissao", method=RequestMethod.POST)
+    @ResponseBody  
+    public ModelAndView adicionarPermissao(@RequestParam String descricao, RedirectAttributes attributes,
+			@Valid Disciplina disciplina, BindingResult result, Role role, Usuario usuario, @RequestParam String login) {
+		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
+		
+		
+		role = roleRepository.findByRole(role.getRole());
+		usuario = usuarioRepository.findOne(usuario.getIdUsuario());
+		
+		
+		
+		
+		return mv;
+	}
+	
 	@RequestMapping(value = "/criarUsuario", method=RequestMethod.POST)
     @ResponseBody  
     public ModelAndView create(@RequestParam String nome_usuario,@RequestParam String login,
