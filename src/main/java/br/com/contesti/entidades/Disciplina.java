@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Disciplina implements Serializable {
@@ -28,7 +28,7 @@ public class Disciplina implements Serializable {
 	@GeneratedValue
 	private Long idDisciplina;
 	
-	@NotNull(message="Preencha o campo Disciplina")
+	@Size(min=1,message="Preencha o campo Disciplina")
 	@Column(nullable=true, length=150)
 	private String descricao;
 

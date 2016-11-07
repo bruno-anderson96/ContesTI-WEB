@@ -39,28 +39,27 @@ public class BancaController {
 	// }
 
 	@RequestMapping(value = "/criarBanca", method = RequestMethod.POST)
-	@ResponseBody  
-	public ModelAndView createBanca(@RequestParam String descricao,RedirectAttributes attributes,
-			 @Valid Banca banca,BindingResult result) {
+	@ResponseBody
+	public ModelAndView createBanca(@RequestParam String descricao, RedirectAttributes attributes, @Valid Banca banca,
+			BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
-if(result.hasFieldErrors("descricao")){
-	
-	attributes.addFlashAttribute("erro", "Preencha o campo Banca");
-	return mv;
-}else{
-		
-		bancaRepository.save(banca);
-		
-		attributes.addFlashAttribute("mensagem", "Banca adicionada!");
-		return mv;
+		if (result.hasFieldErrors("descricao")) {
 
-	}
+			attributes.addFlashAttribute("erro", "Preencha o campo Banca");
+			return mv;
+		} else {
+
+			bancaRepository.save(banca);
+
+			attributes.addFlashAttribute("mensagem", "Banca adicionada!");
+			return mv;
+
+		}
 	}
 }
 
-	// @PostMapping("/bancaT")
-	// public String bancaSubmit(Banca banca) {
-	//
-	// return "Login";
-	// }
-
+// @PostMapping("/bancaT")
+// public String bancaSubmit(Banca banca) {
+//
+// return "Login";
+// }

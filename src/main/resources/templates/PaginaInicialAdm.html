@@ -103,27 +103,29 @@
 			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		</label>  
         </form>
-        	   
+         <form th:object="${disciplina}" method="post" th:action="@{disciplina/criarDisciplina}">	   
         <label>
  			<span class="text-primary">Disciplina:</span>
-			<input type="text" class="form-control" name="Disciplina" placeholder="Disciplina"/>
+			<input type="text" class="form-control" name="descricao" placeholder="Disciplina"/>
 	    </label>
         
         <label>
-			<button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
 		</label>
+		</form>
 		
+			<form th:object="${role}" method="post" th:action="@{role/criarRole}">
 		<label>
 	
 	      <span class="text-primary">Adicionar Permissão:</span>
- 	        <input type="text" class="form-control" name="Permissão" placeholder="Permissão"/>
+ 	        <input type="text" class="form-control" name="role" placeholder="Permissão"/>
  	
        </label>
       
        <label>
-            <button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+            <button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
        </label>    
-		 
+	 </form>
 		    
 	</div>
 	

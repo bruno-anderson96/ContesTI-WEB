@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Role implements Serializable {
@@ -12,7 +13,8 @@ public class Role implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4557327474797890761L;
-	@Id
+	@Id	
+	@Size(min=1,message="Preencha o campo permissão")
 	private String role;
 	private String descricao;
 	
