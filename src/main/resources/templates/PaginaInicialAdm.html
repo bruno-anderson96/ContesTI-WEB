@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cadastrar Questão de Banca</title>
+
+<link href="PrincipalAdm/css/estilo.css" th:href="@{PrincipalAdm/css/estilo.css}"
+	rel="stylesheet" />
+<link href="css/bootstrap-3.3.6/css/bootstrap.min.css"
+	th:href="@{PrincipalAdm/css/bootstrap-3.3.6/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+	th:href="@{css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+
+    <script src="PrincipalAdm/css/bootstrap-3.3.6/js/bootstrap.min.js" th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" th:href="@{jquery/2.0.3/jquery.min.js}"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js " th:href="@{bootstrap/3.3.4/js/bootstrap.min.js}"></script>
+
+
+
+
+
+</head>
+    
+<body data-spy="scroll">
+    <nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<a class="navbar-brand"></a><a class="navbar-brand"><img height="40"  alt="Brand" src="PrincipalAdm/imagens/favicon.ico" class="img-thumbnail"/></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a th:href="@{/cadastroQuestao}">Cadastre sua Questão</a></li>
+						<li><a th:href="@{/Sobre}">Sobre</a></li>
+				   </ul>
+					 
+					
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+
+   <br/>
+    
+    
+   
+    
+    
+    <div class="col-lg-3"></div>
+    <div class="section section-Default">
+      
+    <div class="container">
+      <div class="col-sm-1">
+      <div class="col-xs-2">
+    <div class="container">
+    
+	
+	 </div>
+    </div>
+   </div>
+      
+      <div class="row">
+      <div class="col-lg-1"></div>
+<form name="formulario" method="post" action="">
+ <div class="col-sm-1"></div>
+	 <h1 class="text-primary">Opções</h1>
+	
+        
+<div class="box"> 
+	   
+	  <br/>
+	  <br/>
+	  <br/>
+      <div class="col-lg-3"></div>
+      	
+		
+		<label> 
+		
+	       <span class="text-primary">Banca:</span>
+ 			<input type="text" class="form-control" name="Banca" placeholder="Banca"/>
+ 	    </label>
+ 	    
+ 	    <label>
+			<button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		</label>  
+       
+        <label>
+ 			<span class="text-primary">Disciplina:</span>
+			<input type="text" class="form-control" name="Disciplina" placeholder="Disciplina"/>
+	    </label>
+        
+        <label>
+			<button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		</label>
+		
+		<label>
+	
+	      <span class="text-primary">Adicionar Permissão:</span>
+ 	        <input type="text" class="form-control" name="Permissão" placeholder="Permissão"/>
+ 	
+       </label>
+      
+       <label>
+            <button class="btn btn-success " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+       </label>    
+		 
+		    
+	</div>
+	
+	
+	<br/>
+   
+	
+</form>
+
+
+
+  <form>
+  
+  <div class="col-sm-2">
+	 <span class="text-primary">Assunto:</span>
+		   
+		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
+		    
+			   <option value="4"></option>
+			   <option value="4"> Usuário </option>							
+		    </select>
+		</div>
+		
+  <div class="col-sm-2">
+  
+		<span class="text-primary">Permissão:</span>
+		   
+		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
+		    
+			   <option value="0"></option>
+			   <option value="1"> Administrador </option>
+			   							
+		    </select>
+		    </div>
+		  <br/>  
+		 <div class="col-xs-0 col-sm-3"><button class="btn btn-primary " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		    
+		   
+ </div>
+ 
+ 
+ </form>
+ 
+ <form>
+  
+  <div class="col-sm-2">
+	
+		   
+		    <label>
+ 			
+			<input type="text" class="form-control" name="Assunto" placeholder="Assunto"/>
+		</label>
+		
+		</div>
+		
+  <div class="col-sm-2">
+  
+		
+		   
+		    <select id="PermissoesRequerente" name="PermissoesRequerente" class="form-control">
+		    
+			   <option value="0">Disciplina</option>
+			   <option value="1"> Banco de Dados </option>
+			   							
+		    </select>
+		    </div>
+		    
+		 <div class="col-xs-0 col-sm-1"><button class="text-primary btn btn-primary " type="button" ><span class="glyphicon glyphicon-plus"></span></button>
+		    
+		   
+ </div>
+ 
+ 
+ </form>
+ 
+		
+		
+     </div>
+     
+      </div>
+       
+     </div>
+   
+    <div class="section section-primary"></div>
+    <div class="section section-primary"></div>
+    <div class="section section-primary"></div>
+    <div class="section section-primary"></div>
+    <div class="section section-defauld"><div class="background-image background-image-fixed" style="background-image : url('http://mpesolucoes.com.br/wp-content/uploads/2016/01/iot2.jpg')"></div></div>
+    
+    
+   
+ </body>
+
+</html>

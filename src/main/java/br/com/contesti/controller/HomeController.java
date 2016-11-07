@@ -39,6 +39,18 @@ public class HomeController {
 		return "Login";
 	
 	}
+	@RequestMapping("/home")
+	public String index(){	
+		System.out.println("Hello Login!!");		
+		return "PaginaInicialUser";
+	
+	}
+	@RequestMapping("/homeAdm")
+	public String indexAdmin(){	
+		System.out.println("Hello Login!!");		
+		return "PaginaInicialAdm";
+	
+	}
 	
 	@RequestMapping("/cadastroQuestao")
 	public ModelAndView cadastroQuestao(){

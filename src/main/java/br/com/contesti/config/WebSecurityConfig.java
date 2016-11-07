@@ -68,7 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
    http.csrf().disable().authorizeRequests() 
 	 		.antMatchers("/cadastroQuestao").hasAuthority("ADMIN")
 	        .antMatchers("/cadastro").permitAll()
-	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/cadastroQuestao")
+	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/home")
 	        .usernameParameter("login").passwordParameter("senha")
 	        .and().csrf()
 	        .and().exceptionHandling().accessDeniedPage("/Access_Denied");

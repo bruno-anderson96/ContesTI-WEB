@@ -63,45 +63,35 @@ public class QuestaoController {
 
 		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestao");
 
-		if (result.hasFieldErrors("pergunta")) {
-			attributes.addFlashAttribute("erro", "Preencha o campo pergunta");
-			return mv;
-		} else if (result.hasFieldErrors("desc1")) {
-			attributes.addFlashAttribute("erro", "Preencha todas as descrições");
-			return mv;
+		if (!result.hasFieldErrors("pergunta")) {
 
-		} else if (isCorreta.equals("")) {
-			attributes.addFlashAttribute("erro", "Selecione uma alternativa");
-			return mv;
+			if (!result.hasFieldErrors("desc1")) {
 
-		} else {
-			if (isCorreta.equals("A")) {
-				correta1 = true;
-			} else {
-				correta1 = false;
-			}
-			if (isCorreta.equals("B")) {
-				correta2 = true;
-			} else {
-				correta2 = false;
-			}
-			if (isCorreta.equals("C")) {
-				correta3 = true;
-			} else {
-				correta3 = false;
-			}
-			if (isCorreta.equals("D")) {
-				correta4 = true;
-			} else {
-				correta4 = false;
-			}
-			if (isCorreta.equals("E")) {
-				correta5 = true;
-			} else {
-				correta5 = false;
-			}
-
-			
+				if (isCorreta.equals("A")) {
+					correta1 = true;
+				} else {
+					correta1 = false;
+				}
+				if (isCorreta.equals("B")) {
+					correta2 = true;
+				} else {
+					correta2 = false;
+				}
+				if (isCorreta.equals("C")) {
+					correta3 = true;
+				} else {
+					correta3 = false;
+				}
+				if (isCorreta.equals("D")) {
+					correta4 = true;
+				} else {
+					correta4 = false;
+				}
+				if (isCorreta.equals("E")) {
+					correta5 = true;
+				} else {
+					correta5 = false;
+				}
 
 				disciplina = disciplinaRepository.findOne(disciplina.getId());
 				assunto = assuntoRepository.findOne(assunto.getId());
@@ -122,9 +112,18 @@ public class QuestaoController {
 
 				attributes.addFlashAttribute("mensagem", "Questão cadastrada com sucesso!");
 				return mv;
+			} else {
+				attributes.addFlashAttribute("erro", "Preencha todas as descrições");
+				System.out.println("caiu aqui");
+				return mv;
 			}
+		} else {
+			attributes.addFlashAttribute("erro", "Preencha o campo pergunta");
+			System.out.println("caiu aqui");
+			return mv;
 		}
-	
+
+	}
 
 	@RequestMapping(value = "/criarQuestaoConcurso", method = RequestMethod.POST)
 	@ResponseBody
