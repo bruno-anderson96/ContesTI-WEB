@@ -42,37 +42,41 @@ public class UsuarioController {
     					 @Valid Usuario usuario, BindingResult result) throws Exception{	
 		
 			List<Usuario> u = usuarioRepository.findByLogin(login);
-			
-			if(u.size() != 0){
-				
-				ModelAndView mv = new ModelAndView("redirect:/cadastro");
-    			attributes.addFlashAttribute("mensagem", "Usuário já existe");
-    			    			    			   	       	
+			ModelAndView mv = new ModelAndView("redirect:/cadastro");
+			if(u.size() != 0){			
+    			attributes.addFlashAttribute("erro", "Usuário já existe");  			    			    			   	       	
     	    	return mv;
 				    	    	
-			}else{
-				if(senha.equals(confirmar_senha)){ 
-					if(usuario.isEmailValid(email)){
-						
+			}else
+			if(result.hasFieldErrors("login")){
+				attributes.addFlashAttribute("erro", "Login deve conter ao menos 5 caracteres");	   	       	
+    	    	return mv;
+			}else
+			if(result.hasFieldErrors("nome_usuario")){
+				attributes.addFlashAttribute("erro", "Preencha seu nome");	   	       	
+    	    	return mv;
+			}	if(!usuario.isEmailValid(email)){
+				attributes.addFlashAttribute("erro", "Email inválido");	   	       	
+    	    	return mv;
+			}else{	
+				
+				
+			if(senha.equals(confirmar_senha)){ 
+				if(result.hasFieldErrors("senha")){									
 					senha = encoder.encodePassword(senha, null);
 					//senha = usuario.criptografar(senha);
 //					System.out.println(encoder.encodePassword(senha, null));
-//					System.out.println(usuario.criptografar(senha));
-        		
+//					System.out.println(usuario.criptografar(senha));    		
         			
-        			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email)); 
-        			ModelAndView mv = new ModelAndView("redirect:/cadastro");
-        			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");
-        			    			   	       	
+        			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email));         	
+        			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");        			    			   	       	
         	    	return mv;
-					}else{
-						ModelAndView mv = new ModelAndView("redirect:/cadastro");
-	        			attributes.addFlashAttribute("mensagem", "Email inválido");
+					}else{					
+	        			attributes.addFlashAttribute("erro", "Senha deve conter ao menos 8 caracteres");
 	        			return mv;
 					}
-        		}else{
-        			ModelAndView mv = new ModelAndView("redirect:/cadastro");
-        			attributes.addFlashAttribute("mensagem", "Erro");
+        		}else{        		
+        			attributes.addFlashAttribute("erro", "Senhas diferentes");
         			return mv;
         		}
     		
