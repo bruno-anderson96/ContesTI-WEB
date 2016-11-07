@@ -59,6 +59,12 @@ select {
 			<div class="row">
 				<div class="col-md-10">
 					<form th:object="${questao}" method="post" th:action="@{cadastroQuestao/criarQuestaoUsuario}">
+					<div class="alert alert-success" th:text="${mensagem}"
+						th:if="${not #strings.isEmpty(mensagem)}"></div>
+						
+						<div class="alert alert-danger" th:text="${erro}"
+						th:if="${not #strings.isEmpty(erro)}"></div>
+						
 						<label>Disciplina:</label> <select name="disciplina" id="idDisciplina">
 							<option value=""></option>
 							<option th:value="${listarDisciplina.id}"

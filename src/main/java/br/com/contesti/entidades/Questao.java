@@ -23,7 +23,7 @@ public class Questao implements Serializable {
 	private Integer idQuestao;
 	
 	@Size(min=1,message="Preencha o campo pergunta")
-	@Column(nullable=true)
+	@Column
 	private String pergunta;
 	
 	
