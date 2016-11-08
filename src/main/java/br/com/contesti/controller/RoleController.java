@@ -25,16 +25,16 @@ public class RoleController {
 	
 	@RequestMapping(value = "/criarRole", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView createBanca(@RequestParam String role, RedirectAttributes attributes, @Valid Role permissao,
+	public ModelAndView createBanca(@RequestParam String permissao, RedirectAttributes attributes, @Valid Role role,
 			BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
-		if (result.hasFieldErrors("role")) {
+		if (result.hasFieldErrors("permissao")) {
 
 			attributes.addFlashAttribute("erro", "Preencha o campo Permissão");
 			return mv;
 		} else {
-
-			roleRepository.save(permissao);
+			role.setRole(permissao);
+			roleRepository.save(role);
 
 			attributes.addFlashAttribute("mensagem", "Permissão adicionada!");
 			return mv;
