@@ -77,139 +77,117 @@
 
  <div class="col-sm-1"></div>
 	 <h1 class="text-primary">Opções</h1>
-	
-        
-<div class="box"> 
-	   
-	  <br/>
-	  <br/>
-	  <br/>
-      <div class="col-lg-3"></div>
-      	
-				<div>
-		 <form th:object="${banca}" method="post" th:action="@{banca/criarBanca}">
-		 	<div class="alert alert-success" th:text="${mensagem}"
-						th:if="${not #strings.isEmpty(mensagem)}"></div>
-							
-			<div class="alert alert-danger" th:text="${erro}"
-						th:if="${not #strings.isEmpty(erro)}"></div>
-
-		<label> 		
-	       <span class="text-primary">Banca:</span>
- 			<input type="text" class="form-control" name="descricao" placeholder="Banca"/>
- 	    </label>
-
- 	    
- 	    <label>
-			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-		</label>
-
-        </form>
-       		 </div>  
-        		<div>
-         <form th:object="${disciplina}" method="post" th:action="@{disciplina/criarDisciplina}">	   
-        <label>
- 			<span class="text-primary">Disciplina:</span>
-			<input type="text" class="form-control" name="descricao" placeholder="Disciplina"/>
-	    </label>
-        
-        <label>
-			<button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-		</label>
-		</form>
-		 </div>  
-		 <div>
-			<form th:object="${role}" method="post" th:action="@{role/criarRole}">
-		<label>
-	
-	      <span class="text-primary">Adicionar Permissão:</span>
- 	        <input type="text" class="form-control" name="role" placeholder="Permissão"/>
- 	
-       </label>
-      
-       <label>
-            <button class="btn btn-success " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-       </label>    
-	 </form>
-		   </div> 
-	</div>
-	
-	
-	<br/>
-   
 
 
+				<div class="box">
+					<br /> <br /> <br />
+					<div class="col-lg-3"></div>
 
+					<div>
+						<form th:object="${banca}" method="post"
+							th:action="@{banca/criarBanca}">
+							<div class="alert alert-success" th:text="${mensagem}"
+								th:if="${not #strings.isEmpty(mensagem)}"></div>
 
- <form method="post" th:action="@{cadastro/AdicionarPermissao}">	
-  
-  <div class="col-sm-2">
-	 <span class="text-primary">Usuário:</span>
-		   
-		    		    <select name="usuario" id="idUsuario">
+							<div class="alert alert-danger" th:text="${erro}"
+								th:if="${not #strings.isEmpty(erro)}"></div>
+
+							<label> <span class="text-primary">Banca:</span> <input
+								type="text" class="form-control" name="descricao"
+								placeholder="Banca" />
+							</label> <label>
+								<button class="btn btn-success " type="submit">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</label>
+						</form>
+					</div>
+					
+					
+					<div>
+						<form th:object="${disciplina}" method="post"
+							th:action="@{disciplina/criarDisciplina}">
+							<label> <span class="text-primary">Disciplina:</span> <input
+								type="text" class="form-control" name="descricao"
+								placeholder="Disciplina" />
+							</label> <label>
+								<button class="btn btn-success " type="submit">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</label>
+						</form>
+					</div>
+					<div>
+						<form th:object="${role}" method="post"
+							th:action="@{role/criarRole}">
+							<label> <span class="text-primary">Adicionar
+									Permissão:</span> <input type="text" class="form-control" name="role"
+								placeholder="Permissão" />
+
+							</label> <label>
+								<button class="btn btn-success " type="submit">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</label>
+						</form>
+					</div>
+				</div>
+				<br/>
+
+				<form method="post" th:action="@{cadastro/AdicionarPermissao}">
+					<div class="col-sm-2">
+						<span class="text-primary">Usuário:</span> <select name="usuario"
+							id="idUsuario">
 							<option value=""></option>
 							<option th:value="${listarUsuario.idUsuario}"
 								th:each="listarUsuario : ${listarUsuario}"
 								th:text="${listarUsuario.nome_usuario}"></option>
 						</select>
-		    
-		</div>
-		
-  <div class="col-sm-2">
-  
-		<span class="text-primary">Permissão:</span>
-		   
-		     <select name="role" id="role">
+					</div>
+					<div class="col-sm-2">
+						<span class="text-primary">Permissão:</span> <select name="role"
+							id="role">
 							<option value=""></option>
 							<option th:value="${listarRole.role}"
 								th:each="listarRole : ${listarRole}"
 								th:text="${listarRole.role}"></option>
 						</select>
-		    </div>
-		  <br/>  
-		 <div class="col-xs-0 col-sm-3"><button class="btn btn-primary " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-		    
-		   
- </div>
- 
- 
- </form>
- 
- <form>
-  
-  <div class="col-sm-2">
-	
-		   
-		    <label>
- 			
-			<input type="text" class="form-control" name="descricao" placeholder="Assunto"/>
-		</label>
-		
-		</div>
-		
-  <div class="col-sm-2">
-  
-		
-		   
-		   <select name="disciplina" id="idDisciplina">
+					</div>
+					<br />
+					<div class="col-xs-0 col-sm-3">
+						<button class="btn btn-primary " type="submit">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+				</form>
+				
+
+				<form th:object="${assunto}" method="post"
+					th:action="@{assunto/criarAssunto}">
+					<div class="col-sm-2">
+						<label> <input type="text" class="form-control"
+							name="descricao" placeholder="Assunto" />
+						</label>
+					</div>
+					<div class="col-sm-2">
+						<select name="disciplina" id="idDisciplina">
 							<option value=""></option>
 							<option th:value="${listarDisciplina.id}"
 								th:each="listarDisciplina : ${listarDisciplina}"
 								th:text="${listarDisciplina.descricao}"></option>
 						</select>
-		    </div>
-		    
-		 <div class="col-xs-0 col-sm-1"><button class="text-primary btn btn-primary " type="submit" ><span class="glyphicon glyphicon-plus"></span></button>
-		    
-		   
- </div>
- 
- 
- </form>
- 
-		
-		
-     </div>
+					</div>
+
+					<div class="col-xs-0 col-sm-1">
+						<button class="text-primary btn btn-primary " type="submit">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					</div>
+				</form>
+
+
+
+			</div>
      
       </div>
        
