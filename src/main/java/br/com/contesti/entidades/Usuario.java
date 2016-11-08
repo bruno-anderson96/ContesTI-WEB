@@ -125,6 +125,16 @@ public class Usuario implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -177,6 +187,7 @@ public class Usuario implements Serializable {
 		return "Usuario [idUsuario=" + idUsuario + ", nome_usuario=" + nome_usuario + ", login=" + login + ", senha="
 				+ senha + ", email=" + email + "]";
 	}
+
 	
 	
 	

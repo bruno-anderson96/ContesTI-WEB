@@ -1,7 +1,10 @@
 package br.com.contesti.controller;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +37,21 @@ public class UsuarioController {
 	
 	Md5PasswordEncoder encoder = new Md5PasswordEncoder();
 	
-	
+
 	@RequestMapping(value = "/AdicionarPermissao", method=RequestMethod.POST)
     @ResponseBody  
-    public ModelAndView adicionarPermissao(@RequestParam String descricao, RedirectAttributes attributes,
-			@Valid Disciplina disciplina, BindingResult result, Role role, Usuario usuario, @RequestParam String login) {
+    public ModelAndView adicionarPermissao(RedirectAttributes attributes,
+			@Valid Disciplina disciplina, BindingResult result, Role role, Usuario usuario) {
 		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
 		
 		
-		role = roleRepository.findByRole(role.getRole());
+		role = roleRepository.findByRole(role.getRole());	
 		usuario = usuarioRepository.findOne(usuario.getIdUsuario());
 		
+
 		
 		
+		attributes.addFlashAttribute("mensagem", "Permissão adicionada"); 
 		
 		return mv;
 	}
@@ -78,11 +83,14 @@ public class UsuarioController {
 				attributes.addFlashAttribute("erro", "Email inválido");	   	       	
     	    	return mv;
 			}else{	
-				
-				
+				if(result.hasFieldErrors("senha")){			
+										
+	        			attributes.addFlashAttribute("erro", "Senha deve conter ao menos 8 caracteres");
+	        			return mv;
+					}else{
 			if(senha.equals(confirmar_senha)){ 
-				if(result.hasFieldErrors("senha")){									
-					senha = encoder.encodePassword(senha, null);
+											
+//					senha = encoder.encodePassword(senha, null);
 					//senha = usuario.criptografar(senha);
 //					System.out.println(encoder.encodePassword(senha, null));
 //					System.out.println(usuario.criptografar(senha));    		
@@ -90,11 +98,8 @@ public class UsuarioController {
         			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email));         	
         			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");        			    			   	       	
         	    	return mv;
-					}else{					
-	        			attributes.addFlashAttribute("erro", "Senha deve conter ao menos 8 caracteres");
-	        			return mv;
 					}
-        		}else{        		
+        		else{        		
         			attributes.addFlashAttribute("erro", "Senhas diferentes");
         			return mv;
         		}
@@ -102,7 +107,7 @@ public class UsuarioController {
     }
 	}
 	
-
+	}
 }
 	
 //	@RequestMapping(value = "/testeUsuario")

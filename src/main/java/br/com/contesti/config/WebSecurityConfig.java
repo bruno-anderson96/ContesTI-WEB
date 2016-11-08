@@ -66,7 +66,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
    http.csrf().disable().authorizeRequests() 
-	 		.antMatchers("/cadastroQuestao").hasAuthority("ADMIN")
+	 		.antMatchers("/homeAdm").hasAuthority("ADMIN")
+	 		.antMatchers("/cadastroQuestaoConcurso").hasAuthority("ADMIN")
+	 		.antMatchers("/cadastroQuestao").fullyAuthenticated()
+	 		.antMatchers("/home").fullyAuthenticated()
+	 		.antMatchers("/Sobre").fullyAuthenticated()
 	        .antMatchers("/cadastro").permitAll()
 	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/home")
 	        .usernameParameter("login").passwordParameter("senha")
