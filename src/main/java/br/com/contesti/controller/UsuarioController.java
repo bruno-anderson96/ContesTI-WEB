@@ -90,7 +90,7 @@ public class UsuarioController {
 					}else{
 			if(senha.equals(confirmar_senha)){ 
 											
-//					senha = encoder.encodePassword(senha, null);
+					senha = encoder.encodePassword(senha, null);
 					//senha = usuario.criptografar(senha);
 //					System.out.println(encoder.encodePassword(senha, null));
 //					System.out.println(usuario.criptografar(senha));    		
