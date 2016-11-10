@@ -84,7 +84,7 @@
 					<div class="col-lg-3"></div>
 
 					<div>
-						<form th:object="${banca}" method="post"
+						<form  th:object="${banca}" method="post"
 							th:action="@{banca/criarBanca}">
 							<div class="alert alert-success" th:text="${mensagem}"
 								th:if="${not #strings.isEmpty(mensagem)}"></div>
