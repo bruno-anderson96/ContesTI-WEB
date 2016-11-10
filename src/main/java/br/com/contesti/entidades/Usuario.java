@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +18,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.SQLInsert;
 
 @Entity
 @Table(name="usuario")
@@ -76,16 +79,20 @@ public class Usuario implements Serializable {
 	@Column(nullable=true)
 	private Boolean ativo=true;
 	
+	
+	
+
 	@ManyToMany
 	@JoinTable(name="usuario_roles")
 	private Collection<Role> roles;
 	
-	public Usuario(String nome_usuario, String login, String senha, String email) {
+	public Usuario(String nome_usuario, String login, String senha, String email,Role role) {
 		// TODO Auto-generated constructor stub
 		this.nome_usuario = nome_usuario;
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
+		this.roles = Arrays.asList(role);
 		
 	}
 	
@@ -133,6 +140,7 @@ public class Usuario implements Serializable {
 
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
+	
 	}
 
 	@Override

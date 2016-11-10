@@ -1,10 +1,8 @@
 package br.com.contesti.controller;
 
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
-import java.util.function.Consumer;
 
-import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,8 +92,12 @@ public class UsuarioController {
 					//senha = usuario.criptografar(senha);
 //					System.out.println(encoder.encodePassword(senha, null));
 //					System.out.println(usuario.criptografar(senha));    		
-        			
-        			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email));         	
+					Role roleUser = roleRepository.findByRole("USUARIO");
+					System.out.println(usuario.getRoles());
+					usuario.setRoles(Arrays.asList(roleUser));
+					System.out.println(usuario.getRoles());
+        			usuarioRepository.save(new Usuario(nome_usuario,login,senha,email,roleUser));  
+        			System.out.println(usuario.getRoles());
         			attributes.addFlashAttribute("mensagem", "Usuário criado com sucesso!");        			    			   	       	
         	    	return mv;
 					}
