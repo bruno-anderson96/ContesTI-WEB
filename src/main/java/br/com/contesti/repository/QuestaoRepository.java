@@ -8,10 +8,7 @@ import br.com.contesti.entidades.Questao;
 
 public interface QuestaoRepository extends JpaRepository<Questao, Long> {
 
-	
 	List<Questao> findByPergunta(String pergunta);
-	
-
 	
 	
 }

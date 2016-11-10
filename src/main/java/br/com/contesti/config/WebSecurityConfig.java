@@ -16,71 +16,47 @@ import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 
 import br.com.contesti.entidades.Role;
 
-
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled=true)
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	UserDetailsService userDetailsService;
 
-	@Bean(name="userDetailService")
-	public UserDetailsService userDetailsService(DataSource dataSource){
+	@Bean(name = "userDetailService")
+	public UserDetailsService userDetailsService(DataSource dataSource) {
 		JdbcDaoImpl jdbcImpl = new JdbcDaoImpl();
 		jdbcImpl.setDataSource(dataSource);
-		jdbcImpl.setUsersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?");
-		jdbcImpl.setAuthoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?");
+		jdbcImpl.setUsersByUsernameQuery(
+				"select id_usuario as principal, senha as credentials, true from usuario where login = ?");
+		jdbcImpl.setAuthoritiesByUsernameQuery(
+				"select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?");
 		return jdbcImpl;
 	}
-	
-	
-	@Bean(name="passwordEncoder")
+
+	@Bean(name = "passwordEncoder")
 	public Md5PasswordEncoder passwordencoder() throws Exception {
-	  return new Md5PasswordEncoder();
+		return new Md5PasswordEncoder();
 	}
-	
-	
-	
+
 	@Autowired
-	public void globalConfig(AuthenticationManagerBuilder auth) throws Exception{
+	public void globalConfig(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
 		auth.inMemoryAuthentication().withUser("admin").password("123").authorities("ADMIN");
 		auth.userDetailsService(userDetailsService).passwordEncoder(passwordencoder());
-//		auth.userDetailsService(userDetailsService);
-		
+		// auth.userDetailsService(userDetailsService);
+
 	}
-	
-//	@Autowired
-//	public void globalConfig(AuthenticationManagerBuilder auth,DataSource dataSource) throws Exception{
-//		auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
-//		auth.inMemoryAuthentication().withUser("prof1").password("123").roles("PROF");
-//		auth.inMemoryAuthentication().withUser("est1").password("123").roles("ESTUDANTE");
-//
-//		auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery("select id_usuario as principal, senha as credentials, true from usuario where login = ?")
-//		.passwordEncoder(new Md5PasswordEncoder()).authoritiesByUsernameQuery("select usuario_id_usuario as principal, roles_role as role from usuario_roles where usuario_id_usuario = ?")
-//		.rolePrefix("ROLE_");
-//		
-//	}
-	
+
 	@Override
-	protected void configure(HttpSecurity http) throws Exception{
-   http.csrf().disable().authorizeRequests() 
-	 		.antMatchers("/homeAdm").hasAuthority("ADMIN")
-	 		.antMatchers("/cadastroQuestaoConcurso").hasAuthority("ADMIN")
-	 		.antMatchers("/cadastroQuestao").fullyAuthenticated()
-	 		.antMatchers("/home").fullyAuthenticated()
-	 		.antMatchers("/Sobre").fullyAuthenticated()
-	        .antMatchers("/cadastro").permitAll()
-	         .and().formLogin().loginPage("/").permitAll().defaultSuccessUrl("/home")
-	        .usernameParameter("login").passwordParameter("senha")
-	        .and().csrf()
-	        .and().exceptionHandling().accessDeniedPage("/Access_Denied");
-	    }
-	
-
+	protected void configure(HttpSecurity http) throws Exception {
+		http.csrf().disable().authorizeRequests().antMatchers("/homeAdm").hasAuthority("ADMIN")
+				.antMatchers("/cadastroQuestaoConcurso").hasAuthority("ADMIN").antMatchers("/cadastroQuestao")
+				.fullyAuthenticated().antMatchers("/home").fullyAuthenticated().antMatchers("/Sobre")
+				.fullyAuthenticated().antMatchers("/cadastro").permitAll().and().formLogin().loginPage("/").permitAll()
+				.defaultSuccessUrl("/home").usernameParameter("login").passwordParameter("senha").and().csrf().and()
+				.exceptionHandling().accessDeniedPage("/Access_Denied");
 	}
-	
-	
-	
 
+}

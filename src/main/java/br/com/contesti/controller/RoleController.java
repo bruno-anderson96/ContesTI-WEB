@@ -21,8 +21,7 @@ public class RoleController {
 
 	@Autowired
 	private RoleRepository roleRepository;
-	
-	
+		
 	@RequestMapping(value = "/criarRole", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView createBanca(@RequestParam String permissao, RedirectAttributes attributes, @Valid Role role,

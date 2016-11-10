@@ -102,10 +102,5 @@ public class ResolucaoQuestao implements Serializable{
 	public String toString() {
 		return "resolucaoQuestao [idResolucaoQuestao=" + idResolucaoQuestao + ", dataq=" + dataq + ", acerto=" + acerto
 				+ "]";
-	}
-	
-	
-
-	
-	
+	}	
 }

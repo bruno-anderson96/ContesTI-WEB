@@ -23,21 +23,6 @@ public class BancaController {
 	@Autowired
 	private BancaRepository bancaRepository;
 
-	// @RequestMapping(value="/developers",method=RequestMethod.POST)
-	// public String developersAdd(@RequestParam String email,
-	// @RequestParam String firstName, @RequestParam String lastName, Model
-	// model) {
-	// Developer newDeveloper = new Developer();
-	// newDeveloper.setEmail(email);
-	// newDeveloper.setFirstName(firstName);
-	// newDeveloper.setLastName(lastName);
-	// repository.save(newDeveloper);
-	//
-	// model.addAttribute("developer", newDeveloper);
-	// model.addAttribute("skills", skillRepository.findAll());
-	// return "redirect:/developer/" + newDeveloper.getId();
-	// }
-
 	@RequestMapping(value = "/criarBanca", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView createBanca(@RequestParam String descricao, RedirectAttributes attributes, @Valid Banca banca,
@@ -58,8 +43,3 @@ public class BancaController {
 	}
 }
 
-// @PostMapping("/bancaT")
-// public String bancaSubmit(Banca banca) {
-//
-// return "Login";
-// }

@@ -134,13 +134,4 @@ public class Questao implements Serializable {
 		return "Questao [idQuestao=" + idQuestao + ", pergunta=" + pergunta + ", comentario=" + comentario + ", ano="
 				+ ano + "]";
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
 }

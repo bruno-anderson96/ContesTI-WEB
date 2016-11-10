@@ -38,9 +38,7 @@ public class Assunto implements Serializable {
 	@ManyToOne
 	private Disciplina disciplina;
 	
-	
-	
-	
+		
 	public Long getId() {
 		return idAssunto;
 	}

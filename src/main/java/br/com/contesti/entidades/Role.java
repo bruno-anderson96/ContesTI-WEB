@@ -15,14 +15,13 @@ public class Role implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4557327474797890761L;
+	
 	@Id
-
 	@Column(name = "role",columnDefinition="VARCHAR(64)")	
 	@Size(min=1,message="Preencha o campo permissão")
 	private String role;
 
-	private String descricao;
-	
+	private String descricao;	
 	
 	public String getRole() {
 		return role;
@@ -44,11 +43,5 @@ public class Role implements Serializable {
 	public Role() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	
-	
-	
-	
-	
-	
+	}	
 }

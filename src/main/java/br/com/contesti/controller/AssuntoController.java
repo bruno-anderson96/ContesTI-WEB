@@ -35,7 +35,6 @@ public class AssuntoController {
 
 		disciplina = disciplinaRepository.findOne(disciplina.getId());
 		if (disciplinaRepository.findOne(disciplina.getId()) == null) {
-
 			attributes.addFlashAttribute("erro", "Selecione a disciplina");
 			return mv;
 		} else {

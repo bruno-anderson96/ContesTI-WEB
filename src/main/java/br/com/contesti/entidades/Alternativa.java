@@ -22,13 +22,11 @@ public class Alternativa implements Serializable{
 		this.descricao = descricao;
 		this.correta = correta;
 		this.questao = questao;
-	}
-	
+	}	
 	
 	public Alternativa() {
 		// TODO Auto-generated constructor stub
 	}
-
 
 	@Id
 	@GeneratedValue
@@ -43,8 +41,7 @@ public class Alternativa implements Serializable{
 	private boolean correta;
 	
 	@ManyToOne
-	private Questao questao;
-	
+	private Questao questao;	
 	
 	
 	public Integer getId() {

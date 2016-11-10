@@ -43,16 +43,6 @@ public class QuestaoController {
 	@Autowired
 	private BancaRepository bancaRepository;
 
-	// testes
-	// @RequestMapping(value= "/bancaT", method=RequestMethod.POST)
-	// public String createBanca(@RequestParam String descricao,Model model) {
-	// Banca newBanca = new Banca();
-	// newBanca.setDescricao(descricao);
-	// bancaRepository.save(newBanca);
-	// model.addAttribute("banca", newBanca);
-	// return "Sucesso ! ! !";
-	// }
-
 	@RequestMapping(value = "/criarQuestaoUsuario", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView create(@RequestParam String pergunta, @RequestParam String isCorreta, Boolean correta1,
@@ -64,9 +54,7 @@ public class QuestaoController {
 		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestao");
 
 		if (!result.hasFieldErrors("pergunta")) {
-
 			if (!result.hasFieldErrors("desc1")) {
-
 				if (isCorreta.equals("A")) {
 					correta1 = true;
 				} else {
@@ -114,12 +102,10 @@ public class QuestaoController {
 				return mv;
 			} else {
 				attributes.addFlashAttribute("erro", "Preencha todas as descrições");
-				System.out.println("caiu aqui");
 				return mv;
 			}
 		} else {
 			attributes.addFlashAttribute("erro", "Preencha o campo pergunta");
-			System.out.println("caiu aqui");
 			return mv;
 		}
 
@@ -141,15 +127,11 @@ public class QuestaoController {
 		} else if (result.hasFieldErrors("desc1")) {
 			attributes.addFlashAttribute("erro", "Preencha todas as descrições");
 			return mv;
-
 		} else if (isCorreta.equals("")) {
 			attributes.addFlashAttribute("erro", "Selecione uma alternativa");
 			return mv;
-
 		} else {
-
 			{
-
 				if (isCorreta.equals("A")) {
 					correta1 = true;
 				} else {
@@ -201,31 +183,3 @@ public class QuestaoController {
 
 	}
 }
-
-// private AlternativaRepository alternativaRepository;
-
-// public QuestaoController( QuestaoRepository questaoRepository) {
-// this.questaoRepository = questaoRepository;
-//// this.alternativaRepository = alternativaRepository;
-// }
-
-//
-// @RequestMapping(value = "/{pergunta}", method = RequestMethod.GET)
-// public String listaQuestao(@PathVariable("pergunta") String pergunta, Model
-// model) {
-// List<Questao> listaQuestao = questaoRepository.findByPergunta(pergunta);
-// if (listaQuestao != null) {
-// model.addAttribute("Questao", listaQuestao);
-// }
-// return "listaQuestao";
-// }
-//
-// @RequestMapping(value = "/{pergunta}", method = RequestMethod.POST)
-// public String adicionaQuestaoBanca(@PathVariable("pergunta") String
-// descricao, String pergunta, Questao questao, Alternativa a1,Alternativa
-// a2,Alternativa a3,Alternativa a4,Alternativa a5) {
-// a1.setDescricao(descricao);
-// questao.setPergunta(pergunta);
-// questaoRepository.save(questao);
-// return "redirect:/{pergunta}";
-// }

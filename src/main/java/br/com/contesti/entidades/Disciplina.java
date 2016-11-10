@@ -86,9 +86,4 @@ public class Disciplina implements Serializable {
 	public String toString() {
 		return "Disciplina [id=" + idDisciplina + ", descricao=" + descricao + "]";
 	}
-	
-	
-	
-	
-
 }

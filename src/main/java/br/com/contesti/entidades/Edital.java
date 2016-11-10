@@ -97,8 +97,5 @@ public class Edital implements Serializable {
 	@Override
 	public String toString() {
 		return "Edital [idEdital=" + idEdital + ", nome=" + nome + ", link=" + link + "]";
-	}
-	
-	
-	
+	}	
 }

@@ -30,10 +30,8 @@ public class Usuario implements Serializable {
 	 */
 	private static final long serialVersionUID = 5959348604658622025L;
 
-
 	@Id
 	@GeneratedValue
-
 	private Long idUsuario;
 	
 	@NotNull(message="Campo nome vazio")
@@ -79,9 +77,6 @@ public class Usuario implements Serializable {
 	@Column(nullable=true)
 	private Boolean ativo=true;
 	
-	
-	
-
 	@ManyToMany
 	@JoinTable(name="usuario_roles")
 	private Collection<Role> roles;
@@ -92,8 +87,7 @@ public class Usuario implements Serializable {
 		this.login = login;
 		this.senha = senha;
 		this.email = email;
-		this.roles = Arrays.asList(role);
-		
+		this.roles = Arrays.asList(role);		
 	}
 	
 	public Usuario(){
@@ -131,16 +125,14 @@ public class Usuario implements Serializable {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-	
+	}	
 	
 	public Collection<Role> getRoles() {
 		return roles;
 	}
 
 	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
-	
+		this.roles = roles;	
 	}
 
 	@Override

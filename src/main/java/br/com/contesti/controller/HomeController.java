@@ -34,28 +34,24 @@ public class HomeController {
 	public String testeT(){
 		return "testeThyme";
 	}
-	
 		
 	@RequestMapping("/")
-	public String login(){	
-	
-		return "Login";
-	
+	public String login(){		
+		return "Login";	
 	}
+	
 	@RequestMapping("/home")
-	public String index(){	
-		
-		return "PaginaInicialUser";
-	
+	public String index(){			
+		return "PaginaInicialUser";	
 	}
+	
 	@RequestMapping("/homeAdm")
 	public ModelAndView indexAdmin(){	
 		ModelAndView mav = new ModelAndView("PaginaInicialAdm");
 		mav.addObject("listarUsuario", usuarioRepository.findAll());
 		mav.addObject("listarRole", roleRepository.findAll());
 		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
-		return mav;
-	
+		return mav;	
 	}
 	
 	@RequestMapping("/cadastroQuestao")
@@ -73,18 +69,15 @@ public class HomeController {
 		mav.addObject("listarAssunto", assuntoRepository.findAll());
 		mav.addObject("listarBanca", bancaRepository.findAll());
 		return mav;
-	}
-	
+	}	
 		
 	@RequestMapping("/cadastro")
-	public String cadastro(){
-		
+	public String cadastro(){		
 		return "cadastro";
 	}
 	
 	@RequestMapping("/Sobre")
-	public String sobre(){
-	
+	public String sobre(){	
 		return "Sobre";
 	}
 	
