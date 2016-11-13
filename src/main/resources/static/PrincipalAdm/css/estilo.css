@@ -5,25 +5,12 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-::-webkit-scrollbar {
-width: 9px;
-height: 5px;
+select {
+    width:95px;
+    height:30px;
+    padding:0;
+    margin:0;
 }
-::-webkit-scrollbar-track-piece {
-background: #dcdcdc;
-}
-::-webkit-scrollbar-thumb:vertical {
-height: 5px;
-background-color:	#00008B  ;
-}
-::-webkit-scrollbar-thumb:horizontal {
-width: 5px;
-background-color:#00008B ;
-}
-.post p {
-margin:0 0 0;
-}
-
 body {
   margin: 0;
 }
@@ -4001,7 +3988,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #337cbb;
+  background-color:  #ffffff;
 }
 .nav-stacked > li {
   float: none;

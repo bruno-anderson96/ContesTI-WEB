@@ -55,17 +55,22 @@ select {
 		</div>
 	</div>
 	<div class="section section-primary">
+
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10">
-					<form th:object="${questao}" method="post" th:action="@{cadastroQuestao/criarQuestaoUsuario}">
-					<div class="alert alert-success" th:text="${mensagem}"
-						th:if="${not #strings.isEmpty(mensagem)}"></div>
-						
+
+					<form th:object="${questao}" method="post"
+						th:action="@{cadastroQuestao/criarQuestaoUsuario}">
+
+						<div class="alert alert-success" th:text="${mensagem}"
+							th:if="${not #strings.isEmpty(mensagem)}"></div>
+
 						<div class="alert alert-danger" th:text="${erro}"
-						th:if="${not #strings.isEmpty(erro)}"></div>
-						
-						<label>Disciplina:</label> <select name="disciplina" id="idDisciplina">
+							th:if="${not #strings.isEmpty(erro)}"></div>
+
+						<label>Disciplina:</label> <select name="disciplina"
+							id="idDisciplina">
 							<option value=""></option>
 							<option th:value="${listarDisciplina.id}"
 								th:each="listarDisciplina : ${listarDisciplina}"
@@ -134,8 +139,7 @@ select {
 							<button type="submit"
 								class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
 							<a th:href="@{/home}" class="bg-info btn btn-danger btn  btn-sm">
-								Voltar</a>
-							<input type="reset"
+								Voltar</a> <input type="reset"
 								class="bg-info btn btn-warning btn-primary btn-sm"
 								value="Limpar Campos" />
 						</div>
