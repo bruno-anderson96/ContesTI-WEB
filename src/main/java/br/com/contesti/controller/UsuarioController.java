@@ -3,6 +3,7 @@ package br.com.contesti.controller;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,13 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/AdicionarPermissao", method = RequestMethod.POST)
 	@ResponseBody
+	@Transactional
 	public ModelAndView adicionarPermissao(RedirectAttributes attributes, @Valid Disciplina disciplina,
-			BindingResult result, Role role, Usuario usuario) {
+			BindingResult result,@RequestParam String role,@RequestParam Usuario usuario) {
 		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
-
-		role = roleRepository.findByRole(role.getRole());
+		Role rr = roleRepository.findByRole(role);
 		usuario = usuarioRepository.findOne(usuario.getIdUsuario());
-
+		usuarioRepository.save(usuario).setRoles(Arrays.asList(rr));
 		attributes.addFlashAttribute("mensagem", "Permissão adicionada");
 		return mv;
 	}

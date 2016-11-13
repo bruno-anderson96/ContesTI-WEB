@@ -93,6 +93,8 @@ public class Usuario implements Serializable {
 	public Usuario(){
 		
 	}
+	
+
 	public Long getIdUsuario() {
 		return idUsuario;
 	}
