@@ -7,7 +7,7 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Cadastrar Questão de Usuário</title>
+<title>ContesTI - Cadastrar Questão de Usuário</title>
 
 <link href="questaoUser/css/estilo.css"
 	th:href="@{questaoUser/css/estilo.css}" rel="stylesheet" />
@@ -29,15 +29,20 @@
 
 
 <style>
-select {
-	background: #FFFFFF;
-	font-weight: bold;
-	font-style: normal;
-	font-family: Verdana;
-	font-size: 14px;
-	color: #1E90FF;
-}
+     select{
+     width:95px;
+     height:30px;
+     background:#FFFFFF;
+     font-weight:bold;
+     font-style:normal;
+     font-family:Verdana;
+     font-size:12px;
+     color:#1E90FF;
+     border-radius: 20px 20px;
+     }
 </style>
+
+
 
 </head>
 
@@ -49,19 +54,20 @@ select {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7">
-					<h2 class="text-left">Cadastre sua Questão</h2>
+					<h2 class="text-while text-left">Cadastre sua Questão</h2>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="section section-primary">
+	<div class="section section-defauld">
 
 		<div class="container">
-			<div class="row">
-				<div class="col-md-10">
-
-					<form th:object="${questao}" method="post"
-						th:action="@{cadastroQuestao/criarQuestaoUsuario}">
+			
+				
+          <div class="row"></div>
+          <div class="col-sm-0"></div>
+             <form  th:object="${questao}"  th:action="@{cadastroQuestao/criarQuestaoUsuario}" role="form" class="form-horizontal" method="post">
+    
 
 						<div class="alert alert-success" th:text="${mensagem}"
 							th:if="${not #strings.isEmpty(mensagem)}"></div>
@@ -69,89 +75,94 @@ select {
 						<div class="alert alert-danger" th:text="${erro}"
 							th:if="${not #strings.isEmpty(erro)}"></div>
 
-						<label>Disciplina:</label> <select name="disciplina"
+						<select name="disciplina"
 							id="idDisciplina">
-							<option value=""></option>
+							<option value="">Disciplina</option>
 							<option th:value="${listarDisciplina.id}"
 								th:each="listarDisciplina : ${listarDisciplina}"
 								th:text="${listarDisciplina.descricao}"></option>
-						</select> <label>Assunto:</label> <select name="assunto">
-							<option value=""></option>
+						</select>
+						<select name="assunto">
+							<option value="">Assunto</option>
 							<option th:value="${listarAssunto.id}"
 								th:each="listarAssunto : ${listarAssunto}"
 								th:text="${listarAssunto.descricao}"></option>
 						</select>
-
-						<div class="form-group has-feedback">
-							<br /> <label class="col-xs-9 text-while control-label">Questão</label>
-							<br />
-							<div class="col-xs-5">
-								<input name="pergunta" type="text" class="form-control input-lg"
-									placeholder="Questão:" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-xs-9 text-while  control-label"> <input
-								type="radio" name="isCorreta" value="A" /> ( A )
-							</label>
-							<div class="col-xs-5">
-								<input name="desc1" type="text" class="form-control input-lg"
-									placeholder="Aternativa" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-xs-9 text-while  control-label"> <input
-								type="radio" name="isCorreta" value="B" /> ( B )
-							</label>
-							<div class="col-xs-5">
-								<input name="desc2" type="text" class="form-control input-lg"
-									placeholder="Aternativa" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-xs-9 text-while  control-label"> <input
-								type="radio" name="isCorreta" value="C" /> ( C )
-							</label>
-							<div class="col-xs-5">
-								<input name="desc3" type="text" class="form-control input-lg"
-									placeholder="Aternativa" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-xs-9 text-while  control-label"> <input
-								type="radio" name="isCorreta" value="D" /> ( D )
-							</label>
-							<div class="col-xs-5">
-								<input name="desc4" type="text" class="form-control input-lg"
-									placeholder="Aternativa" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-xs-9 text-while  control-label"> <input
-								type="radio" name="isCorreta" value="E" /> ( E )
-							</label>
-							<div class="col-xs-5">
-								<input name="desc5" type="text" class="form-control input-lg"
-									placeholder="Aternativa" />
-							</div>
-						</div>
-						<div class="col-5">
-							<button type="submit"
-								class="bg-info btn btn-success btn-primary btn-sm">Criar</button>
-							<a th:href="@{/home}" class="bg-info btn btn-danger btn  btn-sm">
-								Voltar</a> <input type="reset"
-								class="bg-info btn btn-warning btn-primary btn-sm"
-								value="Limpar Campos" />
-						</div>
-					</form>
-				</div>
-			</div>
+						
+						
+						
+     
+      <div class="form-group has-feedback">
+      <br/>
+      
+        <label class="col-xs-4 text-primary control-label">Questão</label>
+        <div class="col-xs-4">
+          <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
+        </div>
+      </div>
+      <div class="form-group">
+       <input type="radio" name="isCorreta" value="A"/>
+        <label class="col-xs-4 text-primary  control-label">
+          ( A )</label>
+        <div class="col-xs-4">
+          <input name="desc1" type="text" class="form-control input-lg" placeholder="Alternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+      <input type="radio" name="isCorreta" value="B"/>
+        <label class="col-xs-4 text-primary  control-label">
+           ( B )</label>
+        <div class="col-xs-4">
+          <input name="desc2" type="text" class="form-control input-lg" placeholder="Alternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+       <input type="radio" name="isCorreta" value="C"/>
+        <label class="col-xs-4 text-primary  control-label">
+          ( C )</label>
+        <div class="col-xs-4">
+          <input name="desc3" type="text" class="form-control input-lg" placeholder="Alternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+       <input type="radio" name="isCorreta" value="D"/>
+        <label class="col-xs-4 text-primary  control-label">
+          ( D )</label>
+        <div class="col-xs-4">
+          <input name="desc4" type="text" class="form-control input-lg" placeholder="Alternativa"/>
+        </div>
+      </div>
+      <div class="form-group">
+      <input type="radio" name="isCorreta" value="E"/>
+        <label class="col-xs-4 text-primary  control-label">
+           ( E )</label>
+        <div class="col-xs-4">
+          <input name="desc5" type="text" class="form-control input-lg" placeholder="Alternativa"/>
+          <br/>
+        </div>
+      </div>
+      
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+            <button type="submit" class="bg-info btn btn-success btn-sm">Criar</button>
+			<a th:href="@{/home}" class="btn btn-danger btn  btn-sm">Voltar</a> 
+			<input type="reset" class="bg-info btn btn-primary btn-sm" value="Limpar Campos" /></div>
+         </div>
+      </div>
+       
+       <div class="col-5">
+      
+     </div>
+     
+    </form>
+				
+			
 		</div>
 	</div>
-	<div class="section section-primary text-left"></div>
+	<div class="section section-primary"></div>
 	<div class="section section-primary">
-		<div class="background-image background-image-fixed"
-			style="background-image: url('https://s3.amazonaws.com/ciranda/entities/1/covers/416_9912a712d496a39cb3c3263ebd4d1e00dc920055.jpg')"></div>
+		
 	</div>
 
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bree Serif|Imprima');
+@import url('https://fonts.googleapis.com/css?family=Lato|Lato');
 
 html {
   font-family: sans-serif;
@@ -6,10 +6,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-
 body {
   margin: 0;
+   
 }
+
 article,
 aside,
 details,
@@ -244,10 +245,8 @@ th {
   .label {
     border: 1px solid #000;
   }
-    
   .table {
     border-collapse: collapse !important;
-      
   }
   .table td,
   .table th {
@@ -1077,7 +1076,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: Imprima;
+  font-family: Lato;
   font-size: 14px;
   line-height: 1.42857143;
   color: #000000;
@@ -1179,7 +1178,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: Bree Serif;
+  font-family: Lato;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -1583,7 +1582,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 970px;
   }
 }
 .container-fluid {
@@ -5816,7 +5815,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: Imprima;
+  font-family: Lato;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.4;
@@ -5923,7 +5922,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: Imprima;
+  font-family: Lato;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.42857143;
@@ -6766,4 +6765,4 @@ body {
 .cover .cover-image.cover-image-fixed {
   background-attachment: fixed;
 }
-/* PINGENDO COMMENT DO NOT REMOVE */
+

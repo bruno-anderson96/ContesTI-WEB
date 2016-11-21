@@ -4,7 +4,8 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-<title>Sobre</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ContesTI - Sobre</title>
 <link rel="shortcut icon" href="sobre/imagens/favicon.ico"/>
 
 <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" th:href="@{/bootstrap/3.3.4/js/bootstrap.min.js}"></script>
@@ -15,17 +16,12 @@
 </head>
 <body>
 
- <!--  <div class="section section-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <a class="btn btn-primary">Inicio</a>
-          </div>
-        </div>
-      </div>
-    </div>
--->
+ 
 	<div class="section section-primary">
+	 <div class="col-md-12">
+     
+         <a th:href="@{/home}" class="btn btn-primary">Início</a>
+          </div>
 	<p class="text-center">O contesTI foi criado com o objetivo de  auxiliar os estudantes de concursos da<br/>
 	área de tecnologia da informação e mostrar o quanto a tecnologia pode ser útil a estudantes<br/>
 	para que os mesmos possam desenvolver suas atividades de estudo no dia-a-dia através de<br/>
@@ -36,63 +32,64 @@
 	
 	
 	
-	
-	
+	</div>
+	<div class="section section-defauld">
 		    <div class="container">
 			   <div class="row">
 			   <div class="row">
                    <div class="col-md-12">
-                   <h1 class="text-center">Equipe</h1>
+                   <h1 class="text-primary text-center">Equipe</h1>
                    <br/>
                    </div>
                  </div>
 				 <div class="row">
-				<div class="col-md-2">
+				<div class="col-md-4">
                       <img src="sobre\imagem\bruno.jpg" class="center-block img-circle img-responsive"/>
-                      <h3 class="text-center">Bruno Anderson</h3>
-                      <p class="text-center">Devenvolvedor Chefe</p>
+                      <h3 class="text-primary text-center">Bruno Anderson</h3>
+                      <p class="text-primary text-center">Desenvolvedor Web</p>
                 </div>
 				 
-			    <div class="col-md-2">
+			    <div class="col-md-4">
 			          <img src="sobre\imagem\anderson.jpg" class="center-block img-circle img-responsive"/>
-                      <h3 class="text-center">Cicero Anderson</h3>
-                      <p class="text-center">Desenvolvedor</p>
+                      <h3 class="text-primary text-center">Cicero Anderson</h3>
+                      <p class="text-primary text-center">Desenvolvedor Mobile</p>
 			    
                     
                 </div>
                 
-                <div class="col-md-2">
-                      <img src="sobre\imagem\laércio.png" class="center-block img-circle img-responsive"/>
-                      <h3 class="text-center">Francisco Laércio</h3>
-                      <p class="text-center">Gerente de Projeto</p>
+                <div class="col-md-4">
+                      <img src="sobre\imagem\laercio.jpg" class="center-block img-circle img-responsive"/>
+                      <h3 class="text-primary text-center">Francisco Laércio</h3>
+                      <p class="text-primary text-center">Gerente de Projeto</p>
+                      
                 </div>
 				
-				<div class="col-md-2">
+				<div class="col-md-4">
 					 <img src="sobre\imagem\lucas.jpg" class="center-block img-circle img-responsive"/>
-                     <h3 class="text-center">José Lucas</h3>
-                     <p class="text-center">Testador</p>
+                     <h3 class="text-primary text-center">José Lucas</h3>
+                     <p class="text-primary text-center">Testador</p>
 				</div>
 				
-				<div class="col-md-2">
+				<div class="col-md-4">
                     <img src="sobre\imagem\thayla.jpg" class="center-block img-circle img-responsive"/>
-                    <h3 class="text-center">Thayla Firmo</h3>
-                    <p class="text-center">Analista de Sistemas</p>
+                    <h3 class="text-primary text-center">Thayla Firmo</h3>
+                    <p class="text-primary text-center">Analista de Sistemas</p>
                 </div>
                 
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <img src="sobre\imagem\tiago.jpg" class="center-block img-circle img-responsive"/>
-                    <h3 class="text-center">Tiago Silva</h3>
-                    <p class="text-center">Designer</p>
+                    <h3 class="text-primary text-center">Tiago Silva</h3>
+                    <p class="text-primary text-center">Designer</p>
                 </div>
 			   </div>
 			</div>
 		</div>
-		<br/>
-		<br/>
-		<center> © - Desenvolvimento - ContesTI.</center>
+		
+		
 	</div>
 	
-
+ 
+ 
    
 </body>
 </html>
