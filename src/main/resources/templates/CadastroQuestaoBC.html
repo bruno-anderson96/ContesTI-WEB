@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
 
 <head>
 
@@ -9,145 +10,145 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>ContesTI - Cadastrar Questão de Banca</title>
 
-<link href="QuestaoBC/css/estilo.css" th:href="@{QuestaoBC/css/estilo.css}"
-	rel="stylesheet" />
+<link href="QuestaoBC/css/estilo.css"
+	th:href="@{QuestaoBC/css/estilo.css}" rel="stylesheet" />
 <link href="css/bootstrap-3.3.6/css/bootstrap.min.css"
 	th:href="@{QuestaoBC/css/bootstrap-3.3.6/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
 	th:href="@{css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+<script src="QuestaoBC/javascript/listarAssuntos.js"
+	th:href="@{javascript/listarAssunto.js} " type="text/javascript"></script>
+<script src="QuestaoBC/css/bootstrap-3.3.6/js/bootstrap.min.js"
+	th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"
+	th:href="@{jquery/2.0.3/jquery.min.js}"></script>
+<script type="text/javascript"
+	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js "
+	th:href="@{bootstrap/3.3.4/js/bootstrap.min.js}"></script>
 
-    <script src="QuestaoBC/css/bootstrap-3.3.6/js/bootstrap.min.js" th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" th:href="@{jquery/2.0.3/jquery.min.js}"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js " th:href="@{bootstrap/3.3.4/js/bootstrap.min.js}"></script>
- 
- 
- <style>
-     select{
-     width:95px;
-     height:30px;
-     background:#FFFFFF;
-     font-weight:bold;
-     font-style:normal;
-     font-family:Verdana;
-     font-size:12px;
-     color:#1E90FF;
-     border-radius: 20px 20px;
-     }
+
+<style>
+select {
+	width: 95px;
+	height: 30px;
+	background: #FFFFFF;
+	font-weight: bold;
+	font-style: normal;
+	font-family: Verdana;
+	font-size: 12px;
+	color: #1E90FF;
+	border-radius: 20px 20px;
+}
 </style>
 
 </head>
-    
-    
-<body data-spy="scroll">
-    <div class="section section-primary">
-     
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7">
-            <h2 class="text-left">Cadastre sua Questão</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section section-defauld">
-      <div class="container">
-        <div class="row"></div>
-          <div class="col-sm-0"></div>
-             <form th:object="${questao}" th:action="@{cadastroQuestao/criarQuestaoConcurso}" role="form" class="form-horizontal" method="post">
-             
-      
-                       <select name="disciplina" id="idDisciplina">
-							<option value="">Disciplina</option>
-							<option th:value="${listarDisciplina.id}"
-								th:each="listarDisciplina : ${listarDisciplina}"
-								th:text="${listarDisciplina.descricao}"></option>
-						</select> 
-						
-						<select name="assunto">
-							<option value="">Assunto</option>
-							<option th:value="${listarAssunto.id}"
-								th:each="listarAssunto : ${listarAssunto}"
-								th:text="${listarAssunto.descricao}"></option>
-						</select>
-              
-                        <select name="banca">
-							<option value="">Banca</option>
-							<option th:value="${listarBanca.id}"
-								th:each="listarBanca : ${listarBanca}"
-								th:text="${listarBanca.descricao}"></option>
-						</select>
-     
-      <div class="form-group has-feedback">
-      <br/>
-        <label class="col-xs-4 text-primary control-label">Questão</label>
-        <div class="col-xs-4">
-          <input name="pergunta" type="text" class="form-control input-lg" placeholder="Questão:"/>
-        </div>
-      </div>
-      <div class="form-group">
-       <input type="radio" name="isCorreta" value="A"/>
-        <label class="col-xs-4 text-primary  control-label">
-          ( A )</label>
-        <div class="col-xs-4">
-          <input name="desc1" type="text" class="form-control input-lg" placeholder="Alternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-      <input type="radio" name="isCorreta" value="B"/>
-        <label class="col-xs-4 text-primary  control-label">
-           ( B )</label>
-        <div class="col-xs-4">
-          <input name="desc2" type="text" class="form-control input-lg" placeholder="Alternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-       <input type="radio" name="isCorreta" value="C"/>
-        <label class="col-xs-4 text-primary  control-label">
-          ( C )</label>
-        <div class="col-xs-4">
-          <input name="desc3" type="text" class="form-control input-lg" placeholder="Alternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-       <input type="radio" name="isCorreta" value="D"/>
-        <label class="col-xs-4 text-primary  control-label">
-          ( D )</label>
-        <div class="col-xs-4">
-          <input name="desc4" type="text" class="form-control input-lg" placeholder="Alternativa"/>
-        </div>
-      </div>
-      <div class="form-group">
-      <input type="radio" name="isCorreta" value="E"/>
-        <label class="col-xs-4 text-primary  control-label">
-           ( E )</label>
-        <div class="col-xs-4">
-          <input name="desc5" type="text" class="form-control input-lg" placeholder="Alternativa"/>
-          <br/>
-        </div>
-      </div>
-      
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12"><button type="submit" class=" btn btn-success btn-sm">Criar</button>
-            <a th:href="@{/homeAdm}" class=" btn btn-danger btn  btn-sm">Voltar</a>
-            <input type="reset" class=" btn btn-primary btn-sm" value="Limpar Campos"/></div>
-         </div>
-      </div>
-     
-     <div class="col-5">
-      
-     </div>
-     
-    </form>
-          </div>
-       
-    </div>
-    <div class="section section-primary text-left"></div>
-    <div class="section section-primary">
-       
-    </div>
-  
 
-</body></html>
+
+<body data-spy="scroll">
+	<div class="section section-primary">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+					<h2 class="text-left">Cadastre sua Questão</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section section-defauld">
+		<div class="container">
+			<div class="row"></div>
+			<div class="col-sm-0"></div>
+			<form th:object="${questao}"
+				th:action="@{cadastroQuestao/criarQuestaoConcurso}" role="form"
+				class="form-horizontal" method="post">
+
+
+				<select name="disciplina" id="idDisciplina">
+					<option value="">Disciplina</option>
+					<option th:value="${listarDisciplina.id}"
+						th:each="listarDisciplina : ${listarDisciplina}"
+						th:text="${listarDisciplina.descricao}"></option>
+				</select> <select id="idAssunto" name="assuntoDescricao"
+					data:url="@{/cadastroQuestaoConcurso}">
+				</select> <select name="banca">
+					<option value="">Banca</option>
+					<option th:value="${listarBanca.id}"
+						th:each="listarBanca : ${listarBanca}"
+						th:text="${listarBanca.descricao}"></option>
+				</select>
+
+				<div class="form-group has-feedback">
+					<br /> <label class="col-xs-4 text-primary control-label">Questão</label>
+					<div class="col-xs-4">
+						<input name="pergunta" type="text" class="form-control input-lg"
+							placeholder="Questão:" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="isCorreta" value="A" /> <label
+						class="col-xs-4 text-primary  control-label"> ( A )</label>
+					<div class="col-xs-4">
+						<input name="desc1" type="text" class="form-control input-lg"
+							placeholder="Alternativa" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="isCorreta" value="B" /> <label
+						class="col-xs-4 text-primary  control-label"> ( B )</label>
+					<div class="col-xs-4">
+						<input name="desc2" type="text" class="form-control input-lg"
+							placeholder="Alternativa" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="isCorreta" value="C" /> <label
+						class="col-xs-4 text-primary  control-label"> ( C )</label>
+					<div class="col-xs-4">
+						<input name="desc3" type="text" class="form-control input-lg"
+							placeholder="Alternativa" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="isCorreta" value="D" /> <label
+						class="col-xs-4 text-primary  control-label"> ( D )</label>
+					<div class="col-xs-4">
+						<input name="desc4" type="text" class="form-control input-lg"
+							placeholder="Alternativa" />
+					</div>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="isCorreta" value="E" /> <label
+						class="col-xs-4 text-primary  control-label"> ( E )</label>
+					<div class="col-xs-4">
+						<input name="desc5" type="text" class="form-control input-lg"
+							placeholder="Alternativa" /> <br />
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<button type="submit" class=" btn btn-success btn-sm">Criar</button>
+							<a th:href="@{/homeAdm}" class=" btn btn-danger btn  btn-sm">Voltar</a>
+							<input type="reset" class=" btn btn-primary btn-sm"
+								value="Limpar Campos" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col-5"></div>
+
+			</form>
+		</div>
+
+	</div>
+	<div class="section section-primary text-left"></div>
+	<div class="section section-primary"></div>
+
+
+</body>
+</html>

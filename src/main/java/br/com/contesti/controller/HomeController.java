@@ -54,7 +54,7 @@ public class HomeController {
 		return mav;	
 	}
 	
-	@RequestMapping("/cadastroQuestao")
+	@RequestMapping("/cadastroQuestaoUsuario")
 	public ModelAndView cadastroQuestao(){
 		ModelAndView mav = new ModelAndView("CadastroQuestaoUser");
 		mav.addObject("listarDisciplina", disciplinaRepository.findAll());
