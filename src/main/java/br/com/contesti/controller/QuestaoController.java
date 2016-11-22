@@ -1,8 +1,11 @@
 package br.com.contesti.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -43,16 +46,25 @@ public class QuestaoController {
 	@Autowired
 	private BancaRepository bancaRepository;
 
+	@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Assunto> pesquisarPorId(
+			@RequestParam(name="disciplina", defaultValue="-1") Long codigoDisciplina){
+		return assuntoRepository.findByDisciplinaIdDisciplina(codigoDisciplina);
+	}
+	
+	
+	
 	@RequestMapping(value = "/criarQuestaoUsuario", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView create(@RequestParam String pergunta,@RequestParam String isCorreta, Boolean correta1,
 			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
-			@RequestParam String desc5, @RequestParam Disciplina disciplina, @RequestParam Assunto assunto,
+			@RequestParam String desc5, @RequestParam Disciplina disciplina, @RequestParam String assuntoDescricao,
 			@Valid Questao questao, Model model, RedirectAttributes attributes, BindingResult result) {
 
 		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestao");
 
+				
 		if (!result.hasFieldErrors("pergunta")) {
 			if (!result.hasFieldErrors("desc1")) {
 				if (isCorreta.equals("A")) {
@@ -81,10 +93,11 @@ public class QuestaoController {
 					correta5 = false;
 				}
 				
+				
 			
 
 			disciplina = disciplinaRepository.findOne(disciplina.getId());
-			assunto = assuntoRepository.findOne(assunto.getId());
+			Assunto assunto = assuntoRepository.findByDescricao(assuntoDescricao);
 
 			questao = new Questao(pergunta, questao, assunto);
 			questaoRepository.save(questao);

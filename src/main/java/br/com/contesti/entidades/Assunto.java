@@ -6,8 +6,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Assunto implements Serializable {
@@ -36,6 +39,8 @@ public class Assunto implements Serializable {
 	private String descricao;
 	
 	@ManyToOne
+	@JoinColumn(name= "IdDisciplina")
+	@JsonIgnore
 	private Disciplina disciplina;
 	
 		

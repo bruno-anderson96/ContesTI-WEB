@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:data="http://www.thymeleaf.org/extras/data">
 
 <head>
 
@@ -20,6 +21,8 @@
 
 <script src="questaoUser/css/bootstrap-3.3.6/js/bootstrap.min.js"
 	th:href="@{bootstrap/3.3.6/js/bootstrap.min.js}"></script>
+<script src="questaoUser/javascript/listarAssuntos.js"
+	th:href="@{javascript/istarAssunto.js} " type="text/javascript"></script>
 <script type="text/javascript"
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"
 	th:href="@{jquery/2.0.3/jquery.min.js}"></script>
@@ -82,11 +85,9 @@
 								th:each="listarDisciplina : ${listarDisciplina}"
 								th:text="${listarDisciplina.descricao}"></option>
 						</select>
-						<select name="assunto">
-							<option value="">Assunto</option>
-							<option th:value="${listarAssunto.id}"
-								th:each="listarAssunto : ${listarAssunto}"
-								th:text="${listarAssunto.descricao}"></option>
+						<select id="idAssunto" name="assuntoDescricao" data:url="@{/cadastroQuestao}">
+							
+	
 						</select>
 						
 						
