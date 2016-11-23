@@ -60,7 +60,7 @@ public class QuestaoConcursoController {
 			@RequestParam String desc5, @RequestParam Disciplina disciplina, @RequestParam String assuntoDescricao,
 			@RequestParam Banca banca, @Valid Questao questao, Model model, RedirectAttributes attributes,
 			BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestao");
+		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestaoConcurso");
 
 		if (result.hasFieldErrors("pergunta")) {
 			attributes.addFlashAttribute("erro", "Preencha o campo pergunta");

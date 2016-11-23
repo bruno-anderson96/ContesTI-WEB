@@ -60,7 +60,7 @@ public class QuestaoController {
 			@RequestParam String desc5, @RequestParam Disciplina disciplina, @RequestParam String assuntoDescricao,
 			@Valid Questao questao, Model model, RedirectAttributes attributes, BindingResult result) {
 
-		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestao");
+		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestaoUsuario");
 
 				
 		if (!result.hasFieldErrors("pergunta")) {

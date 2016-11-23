@@ -63,9 +63,14 @@ select {
 			<div class="row"></div>
 			<div class="col-sm-0"></div>
 			<form th:object="${questao}"
-				th:action="@{cadastroQuestao/criarQuestaoConcurso}" role="form"
-				class="form-horizontal" method="post">
+				th:action="@{cadastroQuestaoConcurso/criarQuestaoConcurso}"
+				role="form" class="form-horizontal" method="post">
 
+				<div class="alert alert-success" th:text="${mensagem}"
+					th:if="${not #strings.isEmpty(mensagem)}"></div>
+
+				<div class="alert alert-danger" th:text="${erro}"
+					th:if="${not #strings.isEmpty(erro)}"></div>
 
 				<select name="disciplina" id="idDisciplina">
 					<option value="">Disciplina</option>
