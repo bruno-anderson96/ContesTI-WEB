@@ -1,10 +1,14 @@
 package br.com.contesti.controller;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.contesti.entidades.Role;
+import br.com.contesti.entidades.Usuario;
 import br.com.contesti.repository.AssuntoRepository;
 import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
@@ -36,7 +40,7 @@ public class HomeController {
 	}
 		
 	@RequestMapping("/")
-	public String login(){		
+	public String login(){
 		return "Login";	
 	}
 	

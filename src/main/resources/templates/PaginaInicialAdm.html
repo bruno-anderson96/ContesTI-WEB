@@ -8,6 +8,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>ContesTI - Cadastrar Questões de Banca</title>
+<link rel="shortcut icon" href="home/imagens/favicon.ico"/>
 
 <link href="PrincipalAdm/css/estilo.css" th:href="@{PrincipalAdm/css/estilo.css}"
 	rel="stylesheet" />
@@ -164,7 +165,7 @@
 							<option value="">Usuário</option>
 							<option th:value="${listarUsuario.idUsuario}"
 								th:each="listarUsuario : ${listarUsuario}"
-								th:text="${listarUsuario.nome_usuario}"></option>
+								th:text="${listarUsuario.login}"></option>
 						</select>
 					</div>
 					<div class="col-sm-1">

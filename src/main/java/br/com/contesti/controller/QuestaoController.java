@@ -18,12 +18,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.contesti.entidades.Alternativa;
 import br.com.contesti.entidades.Assunto;
-import br.com.contesti.entidades.Banca;
 import br.com.contesti.entidades.Disciplina;
 import br.com.contesti.entidades.Questao;
 import br.com.contesti.repository.AlternativaRepository;
 import br.com.contesti.repository.AssuntoRepository;
-import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
 import br.com.contesti.repository.QuestaoRepository;
 
