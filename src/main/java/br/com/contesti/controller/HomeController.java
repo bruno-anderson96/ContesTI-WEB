@@ -31,6 +31,9 @@ public class HomeController {
 	@Autowired
 	private BancaRepository bancaRepository;
 	
+	
+	
+	
 	@Autowired
 	private RoleRepository roleRepository;
 	
@@ -40,7 +43,7 @@ public class HomeController {
 	}
 		
 	@RequestMapping("/")
-	public String login(){
+	public String login(){		
 		return "Login";	
 	}
 	

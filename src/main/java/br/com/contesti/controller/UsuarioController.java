@@ -78,6 +78,11 @@ public class UsuarioController {
 			} else {
 				if (senha.equals(confirmar_senha)) {
 					senha = encoder.encodePassword(senha, null);
+					if(roleRepository.findByRole("USUARIO")==null){
+						Role roleUser = new Role();
+						roleUser.setRole("USUARIO");
+						roleRepository.save(roleUser);
+					}					
 					Role roleUser = roleRepository.findByRole("USUARIO");
 					usuario.setRoles(Arrays.asList(roleUser));
 					usuarioRepository.save(new Usuario(nome_usuario, login, senha, email, roleUser));
