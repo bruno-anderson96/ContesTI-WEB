@@ -27,7 +27,7 @@ public class RoleController {
 	public ModelAndView createBanca(@RequestParam String permissao, RedirectAttributes attributes, @Valid Role role,
 			BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/homeAdm");
-		if (result.hasFieldErrors("permissao")) {
+		if (permissao.isEmpty()) {
 
 			attributes.addFlashAttribute("erro", "Preencha o campo Permissão");
 			return mv;
