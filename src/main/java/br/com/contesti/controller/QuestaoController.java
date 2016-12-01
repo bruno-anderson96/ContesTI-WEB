@@ -41,56 +41,67 @@ public class QuestaoController {
 	@Autowired
 	private AssuntoRepository assuntoRepository;
 
-
 	@RequestMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<Assunto> pesquisarPorId(
-			@RequestParam(name="disciplina", defaultValue="-1") Long codigoDisciplina){
+			@RequestParam(name = "disciplina", defaultValue = "-1") Long codigoDisciplina) {
 		return assuntoRepository.findByDisciplinaIdDisciplina(codigoDisciplina);
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/criarQuestaoUsuario", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView create(@RequestParam String pergunta,@RequestParam String isCorreta, Boolean correta1,
-			Boolean correta2, Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
+	public ModelAndView create(@RequestParam String pergunta,
+			@RequestParam(name = "isCorreta", defaultValue = "") String isCorreta, Boolean correta1, Boolean correta2,
+			Boolean correta3, Boolean correta4, Boolean correta5, @RequestParam String desc1,
 			@RequestParam String desc2, @RequestParam String desc3, @RequestParam String desc4,
-			@RequestParam String desc5, @RequestParam Disciplina disciplina, @RequestParam String assuntoDescricao,
-			@Valid Questao questao, Model model, RedirectAttributes attributes, BindingResult result) {
+			@RequestParam String desc5, @RequestParam Disciplina disciplina,
+			@RequestParam(name = "assuntoDescricao", defaultValue = "") String assuntoDescricao, @Valid Questao questao,
+			Model model, RedirectAttributes attributes, BindingResult result) {
 
 		ModelAndView mv = new ModelAndView("redirect:/cadastroQuestaoUsuario");
 
-				
-		if (!result.hasFieldErrors("pergunta")) {
-			if (!result.hasFieldErrors("desc1")) {
-				if (isCorreta.equals("A")) {
-					correta1 = true;
-				} else {
-					correta1 = false;
-				}
-				if (isCorreta.equals("B")) {
-					correta2 = true;
-				} else {
-					correta2 = false;
-				}
-				if (isCorreta.equals("C")) {
-					correta3 = true;
-				} else {
-					correta3 = false;
-				}
-				if (isCorreta.equals("D")) {
-					correta4 = true;
-				} else {
-					correta4 = false;
-				}
-				if (isCorreta.equals("E")) {
-					correta5 = true;
-				} else {
-					correta5 = false;
-				}
-				
-				
-			
+		if (assuntoDescricao.isEmpty()) {
+			attributes.addFlashAttribute("erro", "Selecione um assunto");
+			return mv;
+		} else
+
+		if (pergunta.isEmpty()) {
+			attributes.addFlashAttribute("erro", "Preencha o campo Pergunta");
+			return mv;
+		} else if (desc1.isEmpty() || desc2.isEmpty() || desc3.isEmpty() || desc4.isEmpty() || desc5.isEmpty()) {
+			attributes.addFlashAttribute("erro", "Preencha todas as alternativas");
+
+			return mv;
+		} else if (isCorreta.isEmpty()) {
+			attributes.addFlashAttribute("erro", "Preencha a alternativa correta");
+
+			return mv;
+		} else {
+
+			if (isCorreta.equals("A")) {
+				correta1 = true;
+			} else {
+				correta1 = false;
+			}
+			if (isCorreta.equals("B")) {
+				correta2 = true;
+			} else {
+				correta2 = false;
+			}
+			if (isCorreta.equals("C")) {
+				correta3 = true;
+			} else {
+				correta3 = false;
+			}
+			if (isCorreta.equals("D")) {
+				correta4 = true;
+			} else {
+				correta4 = false;
+			}
+			if (isCorreta.equals("E")) {
+				correta5 = true;
+			} else {
+				correta5 = false;
+			}
 
 			disciplina = disciplinaRepository.findOne(disciplina.getId());
 			Assunto assunto = assuntoRepository.findByDescricao(assuntoDescricao);
@@ -111,22 +122,6 @@ public class QuestaoController {
 
 			attributes.addFlashAttribute("mensagem", "Questão cadastrada com sucesso!");
 			return mv;
-		} else {
-			
-			attributes.addFlashAttribute("erro", "Preencha todas as descrições");
-			
-			return mv;
 		}
-	}else
-
-	{
-		
-		attributes.addFlashAttribute("erro", "Preencha o campo pergunta");
-		
-		return mv;
 	}
-
-	}
-
-	
 }

@@ -22,7 +22,7 @@ public class Questao implements Serializable {
 	@GeneratedValue
 	private Integer idQuestao;
 	
-	@Size(min=1,message="Preencha o campo pergunta")
+	
 	@Column
 	private String pergunta;
 	
