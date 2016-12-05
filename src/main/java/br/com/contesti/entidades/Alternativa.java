@@ -33,7 +33,7 @@ public class Alternativa implements Serializable{
 	private Integer idAlternativa;
 	
 	@Size(min=1,message="Preencha todas as alternativas")
-	@Column(nullable=true, length=100)
+	@Column(columnDefinition="TEXT")
 	private String descricao;
 	
 	@NotNull(message="Preencha a alternativa correta")

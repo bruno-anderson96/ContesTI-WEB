@@ -23,7 +23,7 @@ public class Questao implements Serializable {
 	private Integer idQuestao;
 	
 	
-	@Column
+	@Column(columnDefinition="TEXT")
 	private String pergunta;
 	
 	
