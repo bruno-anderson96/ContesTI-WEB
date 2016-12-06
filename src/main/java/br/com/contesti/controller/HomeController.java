@@ -1,14 +1,12 @@
 package br.com.contesti.controller;
 
-import java.util.Arrays;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.contesti.entidades.Role;
-import br.com.contesti.entidades.Usuario;
 import br.com.contesti.repository.AssuntoRepository;
 import br.com.contesti.repository.BancaRepository;
 import br.com.contesti.repository.DisciplinaRepository;
@@ -40,6 +38,12 @@ public class HomeController {
 	@RequestMapping("/testeT")
 	public String testeT(){
 		return "testeThyme";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/?logout";
 	}
 		
 	@RequestMapping("/")
