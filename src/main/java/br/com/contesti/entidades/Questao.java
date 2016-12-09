@@ -37,7 +37,7 @@ public class Questao implements Serializable {
 	@ManyToOne
 	private Assunto assunto;
 	
-	@ManyToOne
+	 	
 	private Banca banca;
 	
 	public Questao(String pergunta, String comentario, int ano){
